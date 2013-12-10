@@ -4,7 +4,7 @@ package projetreconnaissancefaciale;
  *
  * @author Perraudeau Victor
  */
-public class ProjetReconnaissanceFaciale {
+public class main {
 
     /**
      * @param args the command line arguments
