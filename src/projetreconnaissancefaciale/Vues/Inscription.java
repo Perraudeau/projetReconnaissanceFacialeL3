@@ -6,6 +6,8 @@
 
 package projetreconnaissancefaciale.Vues;
 
+import java.awt.Color;
+
 /**
  *
  * @author aslux6
@@ -30,6 +32,18 @@ public class Inscription extends javax.swing.JFrame {
 
         labTitre = new javax.swing.JLabel();
         butAnnuler = new javax.swing.JButton();
+        labInscri = new javax.swing.JLabel();
+        labNom = new javax.swing.JLabel();
+        labPrenom = new javax.swing.JLabel();
+        labMail = new javax.swing.JLabel();
+        labMDP1 = new javax.swing.JLabel();
+        labMDP2 = new javax.swing.JLabel();
+        textNom = new javax.swing.JTextField();
+        textPrenom = new javax.swing.JTextField();
+        textMail = new javax.swing.JTextField();
+        textMDP2 = new javax.swing.JPasswordField();
+        textMDP1 = new javax.swing.JPasswordField();
+        butValider = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -46,27 +60,91 @@ public class Inscription extends javax.swing.JFrame {
             }
         });
 
+        labInscri.setFont(new java.awt.Font("Chiller", 0, 24)); // NOI18N
+        labInscri.setText("Inscription");
+
+        labNom.setText("Nom :");
+
+        labPrenom.setText("Prénom :");
+
+        labMail.setText("Adresse Email :");
+
+        labMDP1.setText("Mot de passe :");
+
+        labMDP2.setText("Réécrivez votre mot de passe :");
+
+        butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butValiderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(labTitre)
+                .addContainerGap(152, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(labTitre)))
-                .addContainerGap(129, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(labInscri))
+                    .addComponent(labMail)
+                    .addComponent(labMDP1)
+                    .addComponent(labMDP2)
+                    .addComponent(labPrenom)
+                    .addComponent(labNom))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(textPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(textNom)
+                    .addComponent(textMail)
+                    .addComponent(textMDP1)
+                    .addComponent(textMDP2))
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labTitre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
-                .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labInscri, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labNom)
+                    .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labPrenom)
+                    .addComponent(textPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labMail)
+                    .addComponent(textMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labMDP1)
+                    .addComponent(textMDP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labMDP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
@@ -76,6 +154,15 @@ public class Inscription extends javax.swing.JFrame {
     private void butAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnulerActionPerformed
         System.exit(0);
     }//GEN-LAST:event_butAnnulerActionPerformed
+
+    private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
+        this.setVisible(false);
+        ApresInscri frame = new ApresInscri();
+        frame.getContentPane().setBackground(new Color(226, 226, 226));
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+    }//GEN-LAST:event_butValiderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,6 +201,18 @@ public class Inscription extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAnnuler;
+    private javax.swing.JButton butValider;
+    private javax.swing.JLabel labInscri;
+    private javax.swing.JLabel labMDP1;
+    private javax.swing.JLabel labMDP2;
+    private javax.swing.JLabel labMail;
+    private javax.swing.JLabel labNom;
+    private javax.swing.JLabel labPrenom;
     private javax.swing.JLabel labTitre;
+    private javax.swing.JPasswordField textMDP1;
+    private javax.swing.JPasswordField textMDP2;
+    private javax.swing.JTextField textMail;
+    private javax.swing.JTextField textNom;
+    private javax.swing.JTextField textPrenom;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,6 +54,11 @@ public class Connexion extends javax.swing.JFrame {
         labMDP.setText("Mot de passe :");
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butValiderActionPerformed(evt);
+            }
+        });
 
         butAnnuler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
         butAnnuler.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +149,10 @@ public class Connexion extends javax.swing.JFrame {
         frame.setVisible(true);
         
     }//GEN-LAST:event_labInsriMouseClicked
+
+    private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butValiderActionPerformed
 
     /**
      * @param args the command line arguments
