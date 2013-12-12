@@ -7,6 +7,7 @@ package projetreconnaissancefaciale;
 
 import java.awt.Color;
 import projetreconnaissancefaciale.Vues.Inscription;
+import sun.security.util.Password;
 
 /**
  *
@@ -151,7 +152,7 @@ public class Connexion extends javax.swing.JFrame {
     }//GEN-LAST:event_labInsriMouseClicked
 
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_butValiderActionPerformed
 
     /**

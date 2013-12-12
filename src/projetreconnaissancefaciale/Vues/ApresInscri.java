@@ -43,7 +43,7 @@ public class ApresInscri extends javax.swing.JFrame {
         labInsci.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         labInsci.setText("Votre inscription à bien été prise en compte.");
 
-        labCon.setText("Voulez-vous allez à la page de connexion ?");
+        labCon.setText("Voulez-vous allez à la page d'accueil ?");
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
         butValider.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +80,11 @@ public class ApresInscri extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(labCon))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
-                        .addComponent(labTitre)))
+                        .addComponent(labTitre))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(labCon)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

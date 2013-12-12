@@ -39,13 +39,13 @@
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      <Component id="labCon" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                       <Component id="labTitre" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                      <Component id="labCon" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -81,7 +81,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labCon">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Voulez-vous allez &#xe0; la page de connexion ?"/>
+        <Property name="text" type="java.lang.String" value="Voulez-vous allez &#xe0; la page d&apos;accueil ?"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="butValider">
