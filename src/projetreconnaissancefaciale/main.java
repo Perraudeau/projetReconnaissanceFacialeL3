@@ -1,6 +1,7 @@
 package projetreconnaissancefaciale;
 
 import java.awt.Color;
+import projetreconnaissancefaciale.Modeles.Utilisateur;
 import projetreconnaissancefaciale.Vues.Connexion;
 
 /**
