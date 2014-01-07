@@ -6,8 +6,8 @@
 package projetreconnaissancefaciale.Vues;
 
 import java.awt.Color;
-import projetreconnaissancefaciale.Vues.Inscription;
-import sun.security.util.Password;
+import java.awt.event.KeyEvent;
+import javax.swing.JButton;
 
 /**
  *
@@ -39,12 +39,18 @@ public class Connexion extends javax.swing.JFrame {
         butAnnuler = new javax.swing.JButton();
         labTitre = new javax.swing.JLabel();
         labInsri = new javax.swing.JLabel();
+        labErreur = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
         setOpacity(0.9F);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         labID.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 14)); // NOI18N
         labID.setForeground(new java.awt.Color(25, 52, 65));
@@ -53,6 +59,12 @@ public class Connexion extends javax.swing.JFrame {
         labMDP.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 14)); // NOI18N
         labMDP.setForeground(new java.awt.Color(25, 52, 65));
         labMDP.setText("Mot de passe :");
+
+        textMDP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textMDPKeyPressed(evt);
+            }
+        });
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
         butValider.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +95,8 @@ public class Connexion extends javax.swing.JFrame {
             }
         });
 
+        labErreur.setForeground(new java.awt.Color(255, 0, 51));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,46 +108,53 @@ public class Connexion extends javax.swing.JFrame {
                 .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(labTitre)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(128, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(labInsri))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(labID)
                             .addComponent(labMDP))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textMDP, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(labTitre)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                            .addComponent(textMDP, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(131, 131, 131))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(labInsri)
+                        .addGap(181, 181, 181))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(labErreur, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labTitre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labID)
+                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textMDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labMDP))
+                .addGap(18, 18, 18)
+                .addComponent(labErreur, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(labInsri)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labID)
-                            .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textMDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labMDP))
-                        .addGap(18, 18, 18)
-                        .addComponent(labInsri)
-                        .addGap(13, 13, 13)
-                        .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
+
+        labErreur.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,12 +169,39 @@ public class Connexion extends javax.swing.JFrame {
         frame.getContentPane().setBackground(new Color(226, 226, 226));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        
+
     }//GEN-LAST:event_labInsriMouseClicked
 
+
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
-       
+        Valider();
     }//GEN-LAST:event_butValiderActionPerformed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+
+    }//GEN-LAST:event_formKeyPressed
+
+    private void textMDPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textMDPKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Valider();
+        }
+    }//GEN-LAST:event_textMDPKeyPressed
+
+    public void Valider() {
+        labErreur.setText("");
+        String login = textID.getText();
+        String mdp = textMDP.getText();
+
+        if (projetreconnaissancefaciale.Modeles.Utilisateur.verificationUtilisateur(login, mdp)[0].contains("1")) {
+            this.setVisible(false);
+            AjoutPhoto frame = new AjoutPhoto();
+            frame.getContentPane().setBackground(new Color(226, 226, 226));
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        } else {
+            labErreur.setText("Erreur de saisie du login ou du mot de passe.");
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -169,16 +217,21 @@ public class Connexion extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Connexion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Connexion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Connexion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Connexion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -193,6 +246,7 @@ public class Connexion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAnnuler;
     private javax.swing.JButton butValider;
+    private javax.swing.JLabel labErreur;
     private javax.swing.JLabel labID;
     private javax.swing.JLabel labInsri;
     private javax.swing.JLabel labMDP;
@@ -200,4 +254,8 @@ public class Connexion extends javax.swing.JFrame {
     private javax.swing.JTextField textID;
     private javax.swing.JPasswordField textMDP;
     // End of variables declaration//GEN-END:variables
+
+    private JButton butValiderActionPerformed(KeyEvent evt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

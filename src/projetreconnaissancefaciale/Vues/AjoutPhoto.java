@@ -189,4 +189,8 @@ public class AjoutPhoto extends javax.swing.JFrame {
     private javax.swing.JLabel labIma;
     private javax.swing.JLabel labTitre;
     // End of variables declaration//GEN-END:variables
+
+    Object getgetContentPane() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
