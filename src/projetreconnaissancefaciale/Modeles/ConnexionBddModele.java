@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  *
  * @author perraudeau
  */
-public class ConnexionBdd {
+public class ConnexionBddModele {
     /**
      * Informations de connection a la base de donnee
      */
@@ -25,7 +25,7 @@ public class ConnexionBdd {
             try {
                 connect = DriverManager.getConnection(url, user, password);
             } catch (SQLException ex) {
-                Logger.getLogger(ConnexionBdd.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ConnexionBddModele.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return connect;
