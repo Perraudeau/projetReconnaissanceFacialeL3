@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `information`
+-- Structure dae la table `information`
 --
 
 CREATE TABLE IF NOT EXISTS `information` (
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `login`, `password`, `niveauUtilisateur`) VALUES
-(1, 'victor', 'victor', 1),
-(2, 'alexis', 'alexis', 2);
+(1, 'victor', '88fa846e5f8aa198848be76e1abdcb7d7a42d292', 1),
+(2, 'alexis', '37ac5e111a9b2f779e373f78efa4f7678b93feb1', 2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -191,7 +191,7 @@ public class Connexion extends javax.swing.JFrame {
         String login = textID.getText();
         String mdp = textMDP.getText();
 
-        if (projetreconnaissancefaciale.Modeles.Utilisateur.verificationUtilisateur(login, mdp)[0].contains("1")) {
+        if (projetreconnaissancefaciale.Controleurs.UtilisateurHandler.sha1ToVerificationUtilisateur(login, mdp)[0].contains("1")) {
             this.setVisible(false);
             AjoutPhoto frame = new AjoutPhoto();
             frame.getContentPane().setBackground(new Color(226, 226, 226));
