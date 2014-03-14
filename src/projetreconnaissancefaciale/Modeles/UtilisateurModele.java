@@ -11,7 +11,7 @@ import projetreconnaissancefaciale.main;
  *
  * @author perraudeau
  */
-public class Utilisateur {
+public class UtilisateurModele {
 
     /**
      * Verification de la connection à l'application
@@ -26,7 +26,7 @@ public class Utilisateur {
         String[] retour = new String[2];
         retour[0] = "0";
         try {
-            Statement statement = ConnexionBdd.getInstance().createStatement();
+            Statement statement = ConnexionBddModele.getInstance().createStatement();
             ResultSet result = statement.executeQuery("SELECT id,niveauUtilisateur "
                     + "FROM utilisateur "
                     + "WHERE login  = \"" + login + "\" "
