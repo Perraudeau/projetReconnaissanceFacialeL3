@@ -1,29 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetreconnaissancefaciale.Vues;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
+
 import java.io.File;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
- * @author aslux6
+ * @author Leroux
  */
-public class AjoutPhoto extends javax.swing.JFrame {
+public class AjoutPhotoView extends javax.swing.JFrame {
 
     /**
      * Creates new form AjoutPhoto
      */
-    public AjoutPhoto() {
+    public AjoutPhotoView() {
         initComponents();
     }
 
@@ -160,16 +150,16 @@ public class AjoutPhoto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AjoutPhoto.class
+            java.util.logging.Logger.getLogger(AjoutPhotoView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AjoutPhoto.class
+            java.util.logging.Logger.getLogger(AjoutPhotoView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AjoutPhoto.class
+            java.util.logging.Logger.getLogger(AjoutPhotoView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AjoutPhoto.class
+            java.util.logging.Logger.getLogger(AjoutPhotoView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -177,7 +167,7 @@ public class AjoutPhoto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AjoutPhoto().setVisible(true);
+                new AjoutPhotoView().setVisible(true);
             }
         });
     }

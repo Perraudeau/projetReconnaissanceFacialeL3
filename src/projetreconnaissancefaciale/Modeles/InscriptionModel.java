@@ -9,9 +9,9 @@ import projetreconnaissancefaciale.main;
 
 /**
  *
- * @author Victor
+ * @author Perraudeau
  */
-public class InscriptionModele {
+public class InscriptionModel {
     /**
      * Inscription d'un utilisateur dans la base de données.
      * @param name string
@@ -28,7 +28,7 @@ public class InscriptionModele {
             /**
              * Requete pour l'insertion d'informations dans la table utilisateur
              */
-            PreparedStatement psUser = ConnexionBddModele.getInstance().prepareStatement
+            PreparedStatement psUser = ConnectionBddModel.getInstance().prepareStatement
                 ("INSERT INTO 'reconnaissancefaciale'.'utilisateur' "
                 + "('id' ,'login','password','email' ,'niveauUtilisateur','dateInscription') "
                 + "VALUES (NULL ,?,?,?, '1',CURRENT_TIMESTAMP)");
@@ -43,7 +43,7 @@ public class InscriptionModele {
             /**
              * requete pour recuperer l'id de l'enregistrement precedement cree 
              */
-            PreparedStatement psIdUser = ConnexionBddModele.getInstance().prepareStatement
+            PreparedStatement psIdUser = ConnectionBddModel.getInstance().prepareStatement
                 ("SELECT id FROM user WHERE email = ?");
             
             psIdUser.setString(1,email);
@@ -60,7 +60,7 @@ public class InscriptionModele {
              * Requete pour inserer des informations dans la table information a
              * partir de l'userId
              */
-            PreparedStatement psInfo = ConnexionBddModele.getInstance().prepareStatement
+            PreparedStatement psInfo = ConnectionBddModel.getInstance().prepareStatement
                 ("INSERT INTO 'reconnaissancefaciale'.'information' "
                 + "('id' ,'idUtilisateur' ,'nom' ,'prenom' ,'dateDeNaissance' ,'ville' ,'pays' ,'remarque')"
                 + "VALUES (NULL ,?,?,?, '1900-01-01', '', '', '');");

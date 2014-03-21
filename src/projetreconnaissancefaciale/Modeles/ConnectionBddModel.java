@@ -9,9 +9,9 @@ import java.util.logging.Logger;
 /**
  * Connection a la base de donnee en singleton
  *
- * @author perraudeau
+ * @author Perraudeau
  */
-public class ConnexionBddModele {
+public class ConnectionBddModel {
     /**
      * Informations de connection a la base de donnee
      */
@@ -25,7 +25,7 @@ public class ConnexionBddModele {
             try {
                 connect = DriverManager.getConnection(url, user, password);
             } catch (SQLException ex) {
-                Logger.getLogger(ConnexionBddModele.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ConnectionBddModel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return connect;

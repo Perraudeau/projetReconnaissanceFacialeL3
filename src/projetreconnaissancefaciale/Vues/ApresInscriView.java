@@ -1,23 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package projetreconnaissancefaciale.Vues;
 
 import java.awt.Color;
 
 /**
  *
- * @author aslux6
+ * @author Leroux
  */
-public class ApresInscri extends javax.swing.JFrame {
+public class ApresInscriView extends javax.swing.JFrame {
 
     /**
      * Creates new form ApresInscri
      */
-    public ApresInscri() {
+    public ApresInscriView() {
         initComponents();
     }
 
@@ -111,7 +105,7 @@ public class ApresInscri extends javax.swing.JFrame {
 
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
         this.setVisible(false);
-        AjoutPhoto frame  = new AjoutPhoto();
+        AjoutPhotoView frame  = new AjoutPhotoView();
         frame.getContentPane().setBackground(new Color(226, 226, 226));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -135,20 +129,20 @@ public class ApresInscri extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ApresInscri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApresInscriView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ApresInscri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApresInscriView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ApresInscri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApresInscriView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ApresInscri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApresInscriView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ApresInscri().setVisible(true);
+                new ApresInscriView().setVisible(true);
             }
         });
     }

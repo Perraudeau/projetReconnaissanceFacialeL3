@@ -1,24 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetreconnaissancefaciale.Vues;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
+import projetreconnaissancefaciale.Controleurs.ConnectionHandler;
 
 /**
  *
- * @author aslux6
+ * @author Leroux
  */
-public class Connexion extends javax.swing.JFrame {
+public class ConnectionView extends javax.swing.JFrame {
 
     /**
      * Creates new form Connexion
      */
-    public Connexion() {
+    public ConnectionView() {
         initComponents();
     }
 
@@ -154,8 +150,6 @@ public class Connexion extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        labErreur.getAccessibleContext().setAccessibleName("");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -165,7 +159,7 @@ public class Connexion extends javax.swing.JFrame {
 
     private void labInsriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labInsriMouseClicked
         this.setVisible(false);
-        Inscription frame = new Inscription();
+        InscriptionView frame = new InscriptionView();
         frame.getContentPane().setBackground(new Color(226, 226, 226));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -190,10 +184,13 @@ public class Connexion extends javax.swing.JFrame {
         labErreur.setText("");
         String login = textID.getText();
         String mdp = textMDP.getText();
-
-        if (projetreconnaissancefaciale.Controleurs.UtilisateurHandler.sha1ToVerificationUtilisateur(login, mdp)[0].contains("1")) {
+        
+        /**
+         * On verifie que l'utilisateur est bien dans la base
+         */
+        if (ConnectionHandler.sha1ToVerificationUtilisateur(login, mdp)[0].contains("1")) {
             this.setVisible(false);
-            AjoutPhoto frame = new AjoutPhoto();
+            AjoutPhotoView frame = new AjoutPhotoView();
             frame.getContentPane().setBackground(new Color(226, 226, 226));
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
@@ -221,14 +218,14 @@ public class Connexion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Connexion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConnectionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Connexion().setVisible(true);
+                new ConnectionView().setVisible(true);
             }
         });
     }

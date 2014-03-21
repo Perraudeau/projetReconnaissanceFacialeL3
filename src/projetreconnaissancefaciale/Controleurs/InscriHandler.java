@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Alexis
+ * @author Leroux
  */
 public class InscriHandler {
 

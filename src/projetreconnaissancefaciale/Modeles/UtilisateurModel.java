@@ -1,17 +1,17 @@
 package projetreconnaissancefaciale.Modeles;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import projetreconnaissancefaciale.main;
 
 /**
  *
- * @author perraudeau
+ * @author Perraudeau
  */
-public class UtilisateurModele {
+public class UtilisateurModel {
 
     /**
      * Verification de la connection à l'application
@@ -25,12 +25,18 @@ public class UtilisateurModele {
     public static String[] verificationUtilisateur(String login, String pass) {
         String[] retour = new String[2];
         retour[0] = "0";
+            
         try {
-            Statement statement = ConnexionBddModele.getInstance().createStatement();
-            ResultSet result = statement.executeQuery("SELECT id,niveauUtilisateur "
+            PreparedStatement psAppli = ConnectionBddModel.getInstance().prepareStatement
+                ("SELECT id,niveauUtilisateur "
                     + "FROM utilisateur "
-                    + "WHERE login  = \"" + login + "\" "
-                    + "AND password = \"" + pass + "\"");
+                    + "WHERE login  = ?"
+                    + "AND password = ?");
+            
+            psAppli.setString(1, login);
+            psAppli.setString(2,pass);
+            
+            ResultSet result = psAppli.executeQuery();
 
             if (result.next()) {
                 retour[0] = result.getString(1);

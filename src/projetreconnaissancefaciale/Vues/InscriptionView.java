@@ -1,17 +1,18 @@
 package projetreconnaissancefaciale.Vues;
 
 import java.awt.Color;
+import projetreconnaissancefaciale.Controleurs.InscriHandler;
 
 /**
  *
- * @author aslux6
+ * @author Leroux
  */
-public class Inscription extends javax.swing.JFrame {
+public class InscriptionView extends javax.swing.JFrame {
 
     /**
      * Creates new form Inscription
      */
-    public Inscription() {
+    public InscriptionView() {
         initComponents();
     }
 
@@ -164,12 +165,12 @@ public class Inscription extends javax.swing.JFrame {
     }//GEN-LAST:event_butAnnulerActionPerformed
 
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
-        if (projetreconnaissancefaciale.Controleurs.InscriHandler.EmailIsValid(textMail.getText())==false){
+        if (InscriHandler.EmailIsValid(textMail.getText())==false){
             erreurMail.setText("E-mail faux");
             return;
         }
              
-         if (projetreconnaissancefaciale.Controleurs.InscriHandler.EmailIsValid(textNom.getText())==false){
+         if (InscriHandler.EmailIsValid(textNom.getText())==false){
             erreurNom.setText("Nom faux");
             return;
         }
@@ -178,7 +179,7 @@ public class Inscription extends javax.swing.JFrame {
         
         
         this.setVisible(false);
-        ApresInscri frame = new ApresInscri();
+        ApresInscriView frame = new ApresInscriView();
         frame.getContentPane().setBackground(new Color(226, 226, 226));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -204,25 +205,25 @@ public class Inscription extends javax.swing.JFrame {
 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inscription.class  
+            java.util.logging.Logger.getLogger(InscriptionView.class  
 
 .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } 
 
 catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inscription.class  
+            java.util.logging.Logger.getLogger(InscriptionView.class  
 
 .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } 
 
 catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inscription.class  
+            java.util.logging.Logger.getLogger(InscriptionView.class  
 
 .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } 
 
 catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inscription.class  
+            java.util.logging.Logger.getLogger(InscriptionView.class  
 
 .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -231,7 +232,7 @@ catch (javax.swing.UnsupportedLookAndFeelException ex) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inscription().setVisible(true);
+                new InscriptionView().setVisible(true);
             }
         });
     }
