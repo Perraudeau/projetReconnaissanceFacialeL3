@@ -16,28 +16,27 @@ public class UtilisateurModel {
     /**
      * Verification de la connection à l'application
      *
-     * @param login String
+     * @param email String 
      * @param pass String pass hashé en SHA1
      * @return un tableau qui contient l'id de l'utilisateur en case 0
      * et son niveau d'utilisateur en case 1 : 
      * 0: pas autorisé 1: utilisateur 2: administrateur
      */
-    public static String[] verificationUtilisateur(String login, String pass) {
+    public static String[] verificationUtilisateur(String email, String pass) {
         String[] retour = new String[2];
         retour[0] = "0";
-            
+        retour[1] = "0";
+
         try {
             PreparedStatement psAppli = ConnectionBddModel.getInstance().prepareStatement
                 ("SELECT id,niveauUtilisateur "
                     + "FROM utilisateur "
-                    + "WHERE login  = ?"
+                    + "WHERE email  = ?"
                     + "AND password = ?");
-            
-            psAppli.setString(1, login);
-            psAppli.setString(2,pass);
-            
-            ResultSet result = psAppli.executeQuery();
 
+            psAppli.setString(1,email);
+            psAppli.setString(2,pass);
+            ResultSet result = psAppli.executeQuery();
             if (result.next()) {
                 retour[0] = result.getString(1);
                 retour[1] = result.getString(2);

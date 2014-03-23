@@ -222,12 +222,16 @@ public class InscriptionView extends javax.swing.JFrame {
         }else{
             pass=stringMdp1;
         }
-     
+        if (InscriHandler.envoiInscription(nom, prenom, email, textMdp1.getText())){
+            ApresInscriView frame = new ApresInscriView();
+            frame.getContentPane().setBackground(new Color(226, 226, 226));
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        }else{
+            System.out.println("Erreur au niveau de l'ajout");
+        }
         this.setVisible(false);
-        ApresInscriView frame = new ApresInscriView();
-        frame.getContentPane().setBackground(new Color(226, 226, 226));
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        
         
     }//GEN-LAST:event_butValiderActionPerformed
 

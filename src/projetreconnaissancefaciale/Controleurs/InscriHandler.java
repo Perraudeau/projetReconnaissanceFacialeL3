@@ -1,7 +1,9 @@
 package projetreconnaissancefaciale.Controleurs;
 
-import java.util.regex.Pattern;
-import projetreconnaissancefaciale.Vues.InscriptionView;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import projetreconnaissancefaciale.Modeles.InscriptionModel;
 
 /**
  *
@@ -31,13 +33,22 @@ public class InscriHandler {
         }
     }
 
-    public static boolean areSame(String mdp1,String mdp2) {
+    public static boolean areSame(String mdp1, String mdp2) {
         if (mdp1.equals(mdp2)) {
             return true;
         } else {
             return false;
         }
-        
 
+    }
+
+    public static boolean envoiInscription(String nom, String prenom, String mail, String pass) {
+        boolean retour = false;
+        try {
+            retour = InscriptionModel.Inscription(nom, prenom, mail, SHA1Handler.sha1(pass));
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(InscriHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retour;
     }
 }

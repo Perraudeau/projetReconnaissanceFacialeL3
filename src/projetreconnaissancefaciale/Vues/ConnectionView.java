@@ -50,7 +50,7 @@ public class ConnectionView extends javax.swing.JFrame {
 
         labID.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 14)); // NOI18N
         labID.setForeground(new java.awt.Color(25, 52, 65));
-        labID.setText("Identifiant :");
+        labID.setText("Email :");
 
         labMDP.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 14)); // NOI18N
         labMDP.setForeground(new java.awt.Color(25, 52, 65));
@@ -182,13 +182,17 @@ public class ConnectionView extends javax.swing.JFrame {
 
     public void Valider() {
         labErreur.setText("");
-        String login = textID.getText();
+        String email = textID.getText();
         String mdp = textMDP.getText();
         
         /**
          * On verifie que l'utilisateur est bien dans la base
          */
-        if (ConnectionHandler.sha1ToVerificationUtilisateur(login, mdp)[0].contains("1")) {
+        /**
+         * A CHANGER `le .contain pour les droits admins /!\
+         */
+        if (ConnectionHandler.sha1ToVerificationUtilisateur(email, mdp)[1].contains("1" ) 
+                || ConnectionHandler.sha1ToVerificationUtilisateur(email, mdp)[1].contains("2" )) {
             this.setVisible(false);
             AjoutPhotoView frame = new AjoutPhotoView();
             frame.getContentPane().setBackground(new Color(226, 226, 226));
