@@ -15,7 +15,9 @@ public class GrabberShow implements Runnable {
     }
   @Override
   public void run() {
-      FrameGrabber grabber = new VideoInputFrameGrabber(0);// 1 for next camera 
+      //0 pour la premiere webcam , 1 pour la suivante
+      FrameGrabber grabber = new VideoInputFrameGrabber(0);
+      
       int i=0;
       try {
           grabber.start();
@@ -23,14 +25,17 @@ public class GrabberShow implements Runnable {
           while (true) { 
               img = grabber.grab();
               if (img != null) { 
-                  cvFlip(img, img, 1);// l-r = 90_degrees_steps_anti_clockwise 
-                  cvSaveImage("img/"+(i++)+"-aa.jpg", img);
+                  
+                  cvFlip(img, img, 1);//permet de s'assurer que l'image est dans le bon sens
+                  cvSaveImage("img/"+(i++)+"-victor.jpg", img);
                   // show image on window 
                   canvas.showImage(img); 
               } 
             //Thread.sleep(INTERVAL); 
           } 
-      } catch (FrameGrabber.Exception e) { 
+      } catch (FrameGrabber.Exception e) {
+          System.out.println("Erreur de webcam");
+          System.exit(0);
       } 
   }
 
