@@ -8,7 +8,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -33,41 +32,46 @@
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="labTitre" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="labTitre" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="265" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="labInscri" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                              <Component id="labInscri" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="labMail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labMDP1" min="-2" max="-2" attributes="0"/>
-                          <Component id="labMDP2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labPrenom" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labNom" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="textPrenom" alignment="1" pref="118" max="32767" attributes="0"/>
-                          <Component id="textMail" alignment="1" max="32767" attributes="0"/>
-                          <Component id="textMDP1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="textMDP2" alignment="1" max="32767" attributes="0"/>
-                          <Component id="textNom" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="erreurMail" min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="erreurNom" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="labMail" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labMDP1" min="-2" max="-2" attributes="0"/>
+                  <Component id="labMDP2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labPrenom" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labNom" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="textPrenom" alignment="1" pref="118" max="32767" attributes="0"/>
+                  <Component id="textMail" alignment="1" max="32767" attributes="0"/>
+                  <Component id="textMdp1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="textMdp2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="textNom" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="erreurMail" min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="erreurNom" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="erreurPrenom" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="erreurMdp" min="-2" pref="79" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,36 +80,52 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labTitre" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="labInscri" min="-2" pref="21" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labNom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textNom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="erreurNom" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="erreurNom" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="erreurMail" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="erreurPrenom" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="erreurMail" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labMDP1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textMdp1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="textMdp2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labMDP2" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="erreurMdp" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labMDP1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textMDP1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textMDP2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labMDP2" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="butAnnuler" min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="butValider" min="-2" pref="37" max="-2" attributes="0"/>
@@ -174,9 +194,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="textMail">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="textMDP2">
+    <Component class="javax.swing.JPasswordField" name="textMdp2">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="textMDP1">
+    <Component class="javax.swing.JPasswordField" name="textMdp1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textMdp1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butValider">
       <Properties>
@@ -198,6 +221,20 @@
     <Component class="javax.swing.JTextField" name="textNom">
     </Component>
     <Component class="javax.swing.JLabel" name="erreurNom">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="erreurPrenom">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="erreurMdp">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
