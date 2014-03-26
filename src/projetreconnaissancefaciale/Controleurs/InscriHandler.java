@@ -25,6 +25,12 @@ public class InscriHandler {
                     regex = "^[a-zA-Z0-9\\.\\-\\_]+@([a-zA-Z0-9\\-\\_\\.]+\\.)+([a-zA-Z]{2,4})$";
                     return text.matches(regex);
 
+                case 3:
+                    if (text.trim().length() < 6) {
+                        return false;
+                    } else {
+                        return true;
+                    }
                 default:
                     return false;
             }
