@@ -219,10 +219,15 @@ public class InscriptionView extends javax.swing.JFrame {
         if (InscriHandler.areSame(stringMdp1, stringMdp2)==false){
             erreurMdp.setText("Mdp différents");
             return;
+        }else if (InscriHandler.isValid(3, textMdp1.getText()) == false) {
+            erreurMdp.setText("Mdp < 6 caractères");
+            return;   
         }else{
-            pass=stringMdp1;
+            erreurMdp.setText("OK");
+            pass=textMdp1.getText();
         }
-        if (InscriHandler.envoiInscription(nom, prenom, email, textMdp1.getText())){
+        
+        if (InscriHandler.envoiInscription(nom, prenom, email, pass)){
             ApresInscriView frame = new ApresInscriView();
             frame.getContentPane().setBackground(new Color(226, 226, 226));
             frame.setLocationRelativeTo(null);
