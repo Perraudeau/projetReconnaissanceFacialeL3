@@ -194,7 +194,7 @@ public class ConnectionView extends javax.swing.JFrame {
         if (ConnectionHandler.sha1ToVerificationUtilisateur(email, mdp)[1].contains("1" ) 
                 || ConnectionHandler.sha1ToVerificationUtilisateur(email, mdp)[1].contains("2" )) {
             this.setVisible(false);
-            AjoutPhotoView frame = new AjoutPhotoView();
+            ApresConnectionView frame = new ApresConnectionView();
             frame.getContentPane().setBackground(new Color(226, 226, 226));
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
