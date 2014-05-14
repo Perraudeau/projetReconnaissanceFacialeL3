@@ -4,6 +4,9 @@
  */
 package projetreconnaissancefaciale.Vues;
 
+import com.googlecode.javacv.OpenCVFrameGrabber;
+import com.googlecode.javacv.cpp.opencv_core;
+import static com.googlecode.javacv.cpp.opencv_highgui.cvSaveImage;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
@@ -11,10 +14,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
+import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
 
 /**
  *
@@ -40,6 +41,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelProfil = new javax.swing.JPanel();
         labTitre5 = new javax.swing.JLabel();
@@ -59,6 +61,9 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labTitre1 = new javax.swing.JLabel();
         butAnnuler = new javax.swing.JButton();
         butValider = new javax.swing.JButton();
+        takePhoto = new javax.swing.JToggleButton();
+        clear = new javax.swing.JToggleButton();
+        photo = new javax.swing.JLabel();
         panelModif = new javax.swing.JPanel();
         labTitre2 = new javax.swing.JLabel();
         fileChoose = new javax.swing.JFileChooser();
@@ -89,9 +94,10 @@ public class ApresConnectionView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         textParamInfo = new javax.swing.JTextArea();
 
+        jToggleButton1.setText("jToggleButton1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(650, 500));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -143,7 +149,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProfilLayout.createSequentialGroup()
                                 .addComponent(labProfilNom)
                                 .addGap(25, 25, 25)))))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         panelProfilLayout.setVerticalGroup(
             panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +168,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                         .addComponent(labProfilPays)
                         .addGap(23, 23, 23)
                         .addComponent(labProfilImage)))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mon Profil", panelProfil);
@@ -204,7 +210,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
             .addGroup(panelRechercheLayout.createSequentialGroup()
                 .addGap(146, 146, 146)
                 .addComponent(labImaRecherche)
-                .addContainerGap(404, Short.MAX_VALUE))
+                .addContainerGap(479, Short.MAX_VALUE))
             .addGroup(panelRechercheLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,7 +225,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                 .addGroup(panelRechercheLayout.createSequentialGroup()
                     .addGap(11, 11, 11)
                     .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(31, Short.MAX_VALUE)))
+                    .addContainerGap(106, Short.MAX_VALUE)))
         );
         panelRechercheLayout.setVerticalGroup(
             panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +237,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRechercheLayout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(labImaRecherche)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
                         .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelRechercheLayout.createSequentialGroup()
                         .addComponent(labTitre3)
@@ -241,13 +247,23 @@ public class ApresConnectionView extends javax.swing.JFrame {
                 .addGroup(panelRechercheLayout.createSequentialGroup()
                     .addGap(74, 74, 74)
                     .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(64, Short.MAX_VALUE)))
+                    .addContainerGap(107, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Rechercher un utilisateur", panelRecherche);
 
         panelAjout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panelAjout.setPreferredSize(new java.awt.Dimension(600, 475));
+        panelAjout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelAjoutMouseClicked(evt);
+            }
+        });
+        panelAjout.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                panelAjoutComponentShown(evt);
+            }
+        });
 
         labTitre1.setFont(new java.awt.Font("Chiller", 1, 48)); // NOI18N
         labTitre1.setForeground(new java.awt.Color(62, 96, 111));
@@ -261,9 +277,33 @@ public class ApresConnectionView extends javax.swing.JFrame {
         });
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butValiderMouseClicked(evt);
+            }
+        });
         butValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butValiderActionPerformed(evt);
+            }
+        });
+
+        takePhoto.setText("Prendre une photo");
+        takePhoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                takePhotoMouseClicked(evt);
+            }
+        });
+        takePhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                takePhotoActionPerformed(evt);
+            }
+        });
+
+        clear.setText("Recommencer");
+        clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearMouseClicked(evt);
             }
         });
 
@@ -273,23 +313,37 @@ public class ApresConnectionView extends javax.swing.JFrame {
             panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAjoutLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
-                .addContainerGap(212, Short.MAX_VALUE)
-                .addComponent(labTitre1)
-                .addGap(178, 178, 178))
+                .addGroup(panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAjoutLayout.createSequentialGroup()
+                        .addGap(0, 256, Short.MAX_VALUE)
+                        .addComponent(labTitre1)
+                        .addGap(178, 178, 178))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
+                        .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105)
+                        .addComponent(takePhoto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clear)
+                        .addGap(88, 88, 88)
+                        .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
+            .addGroup(panelAjoutLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelAjoutLayout.setVerticalGroup(
             panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
                 .addComponent(labTitre1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
-                .addGroup(panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(butValider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butAnnuler, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(takePhoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -349,7 +403,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                     .addGroup(panelModifLayout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addComponent(labIma)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         panelModifLayout.setVerticalGroup(
             panelModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -501,7 +555,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labParamInfo)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                         .addComponent(butAnnuler2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelParamLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -517,12 +571,12 @@ public class ApresConnectionView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -622,6 +676,47 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labProfilInfo.setText("Informations : "+ParamUserHandler.getUserInfo().toString());
     }//GEN-LAST:event_formWindowActivated
 
+    private void butValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValiderMouseClicked
+        if(prendrePhotoHandler.verificationPhoto(ParamUserHandler.getLogin()) == false){
+            new apresPhotoView().setVisible(true); 
+        }else{
+            prendrePhotoHandler.sauvegardePhoto(ParamUserHandler.getLogin());
+        };
+
+    }//GEN-LAST:event_butValiderMouseClicked
+
+    private void panelAjoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAjoutMouseClicked
+       
+    }//GEN-LAST:event_panelAjoutMouseClicked
+
+    private void panelAjoutComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelAjoutComponentShown
+       takePhoto.setEnabled(true);
+       clear.setEnabled(false);
+       prendrePhotoHandler ab=new prendrePhotoHandler(photo);
+       Thread th=new Thread(ab);
+       ab.start();
+    }//GEN-LAST:event_panelAjoutComponentShown
+
+    private void takePhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takePhotoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_takePhotoActionPerformed
+
+    private void takePhotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_takePhotoMouseClicked
+        prendrePhotoHandler ab=new prendrePhotoHandler(photo);
+        Thread w=new Thread(ab);
+        ab.stop();
+        takePhoto.setEnabled(false);
+        clear.setEnabled(true);
+    }//GEN-LAST:event_takePhotoMouseClicked
+
+    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
+        takePhoto.setEnabled(true);
+        clear.setEnabled(false);
+        prendrePhotoHandler ab=new prendrePhotoHandler(photo);
+        Thread th=new Thread(ab);
+        ab.start();
+    }//GEN-LAST:event_clearMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -665,10 +760,12 @@ public class ApresConnectionView extends javax.swing.JFrame {
     private javax.swing.JButton butValider1;
     private javax.swing.JButton butValider2;
     private javax.swing.JButton butValider3;
+    private javax.swing.JToggleButton clear;
     private javax.swing.JFileChooser fileChoose;
     private javax.swing.JFileChooser fileChooseRecherche;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel labIma;
     private javax.swing.JLabel labImaRecherche;
     private javax.swing.JLabel labMDP1;
@@ -696,6 +793,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
     private javax.swing.JPanel panelParam;
     private javax.swing.JPanel panelProfil;
     private javax.swing.JPanel panelRecherche;
+    private javax.swing.JLabel photo;
+    private javax.swing.JToggleButton takePhoto;
     private javax.swing.JPasswordField textMDP1;
     private javax.swing.JPasswordField textMDP2;
     private javax.swing.JPasswordField textMDP3;
