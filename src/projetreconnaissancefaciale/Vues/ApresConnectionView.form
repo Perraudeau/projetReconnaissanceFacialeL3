@@ -32,7 +32,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="536" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" pref="555" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -94,7 +94,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="181" max="32767" attributes="0"/>
+                      <EmptySpace pref="200" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -178,7 +178,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                       <Component id="labImaRecherche" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="385" max="32767" attributes="0"/>
+                      <EmptySpace pref="404" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -196,7 +196,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="fileChooseRecherche" min="-2" pref="508" max="-2" attributes="0"/>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -306,7 +306,7 @@
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="193" max="32767" attributes="0"/>
+                      <EmptySpace pref="212" max="32767" attributes="0"/>
                       <Component id="labTitre1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
@@ -400,7 +400,7 @@
                               <Component id="labIma" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -487,39 +487,66 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="butAnnuler2" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="butValider3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="butAnnuler2" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="labTitre4" min="-2" max="-2" attributes="0"/>
+                              <Component id="butValider3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labNom" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labMDP3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labMDP2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labMDP1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labPrenom" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labTitre4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="labParamInfo" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="jScrollPane1" pref="177" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="labNom" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="textNom" min="-2" pref="103" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="labPrenom" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="labParamDateNaiss" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labParamVille" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labParamPays" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="textPrenom" max="32767" attributes="0"/>
+                                                  <Component id="textParamDateNaiss" pref="103" max="32767" attributes="0"/>
+                                                  <Component id="textParamVille" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="textParamPays" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="labMDP2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labMDP3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="labMDP1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="textMDP1" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Component id="textMDP2" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Component id="textMDP3" min="-2" pref="116" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="textNom" max="32767" attributes="0"/>
-                                  <Component id="textPrenom" pref="116" max="32767" attributes="0"/>
-                                  <Component id="textMDP1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="textMDP3" alignment="1" pref="116" max="32767" attributes="0"/>
-                                  <Component id="textMDP2" alignment="1" pref="116" max="32767" attributes="0"/>
-                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -529,32 +556,45 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="labTitre4" min="-2" pref="56" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labNom" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="textNom" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labMDP1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="textMDP1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labMDP2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="textMDP2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labMDP3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textMDP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="labMDP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textMDP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="textParamDateNaiss" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labParamDateNaiss" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="76" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labParamVille" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textParamVille" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labParamPays" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textParamPays" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labParamInfo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="49" max="32767" attributes="0"/>
                               <Component id="butAnnuler2" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -634,6 +674,47 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="textMDP2">
             </Component>
+            <Component class="javax.swing.JLabel" name="labParamDateNaiss">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Date de Naissance :"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="textParamDateNaiss">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labParamVille">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ville :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labParamPays">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pays :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="textParamVille">
+            </Component>
+            <Component class="javax.swing.JTextField" name="textParamPays">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labParamInfo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Informations :"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="textParamInfo">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
