@@ -105,7 +105,7 @@ public class ApresInscriView extends javax.swing.JFrame {
 
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
         this.setVisible(false);
-        AjoutPhotoView frame  = new AjoutPhotoView();
+        ApresConnectionView frame  = new ApresConnectionView();
         frame.getContentPane().setBackground(new Color(226, 226, 226));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

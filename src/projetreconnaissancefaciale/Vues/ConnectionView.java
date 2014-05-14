@@ -4,13 +4,15 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import projetreconnaissancefaciale.Controleurs.ConnectionHandler;
+import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
 
 /**
  *
  * @author Leroux
  */
 public class ConnectionView extends javax.swing.JFrame {
-
+    
+    public static String email;
     /**
      * Creates new form Connexion
      */
@@ -182,7 +184,8 @@ public class ConnectionView extends javax.swing.JFrame {
 
     public void Valider() {
         labErreur.setText("");
-        String email = textID.getText();
+        email = textID.getText();
+        ParamUserHandler.setLogin(email);
         String mdp = textMDP.getText();
         
         /**
