@@ -19,6 +19,27 @@ public class ParamUserHandler {
     private static String userNom;
     private static String userPrenom;
     private static String userPass;
+    private static String userDateNaiss;
+    private static String userVille;
+    private static String userPays;
+    private static String userInfo;
+
+    public static String getUserDateNaiss() {
+        return userDateNaiss;
+    }
+
+    public static String getUserVille() {
+        return userVille;
+    }
+
+    public static String getUserPays() {
+        return userPays;
+    }
+
+    public static String getUserInfo() {
+        return userInfo;
+    }
+    
 
     public static String getUserNom() {
         return userNom;
@@ -42,8 +63,14 @@ public class ParamUserHandler {
             userNom=ParamUserModel.getUserNom();
             userPrenom=ParamUserModel.getUserPrenom();
             userPass=ParamUserModel.getUserPass();
-           
-           
+            userDateNaiss=ParamUserModel.getUserDateNaiss();
+          //  System.out.println(userDateNaiss);
+            userVille=ParamUserModel.getUserVille();
+          //  System.out.println(userVille);
+            userPays=ParamUserModel.getUserPays();
+          //  System.out.println(userPays);
+            userInfo=ParamUserModel.getUserInfo();
+          //  System.out.println(userInfo);
          
             
         } catch (SQLException ex) {
