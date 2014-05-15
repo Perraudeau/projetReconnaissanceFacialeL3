@@ -44,6 +44,7 @@ public class comparaisonFace {
                 if(h<j){
                     System.out.println(j);
                     j=h;
+                    System.out.println(j);
                     b=s;
                 } 
             }

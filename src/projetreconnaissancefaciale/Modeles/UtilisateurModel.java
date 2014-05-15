@@ -47,5 +47,27 @@ public class UtilisateurModel {
 
         }
         return retour;
+        
+    }
+    public static int IdGetter(String email){
+        int retour = 0;
+
+        try {
+            PreparedStatement psAppli = ConnectionBddModel.getInstance().prepareStatement
+                ("SELECT id "
+                    + "FROM utilisateur "
+                    + "WHERE email  = ?");
+
+            psAppli.setString(1,email);
+            ResultSet result = psAppli.executeQuery();
+            if (result.next()) {
+                retour = result.getInt(1);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erreur dans la requête de connection");
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return retour;
     }
 }

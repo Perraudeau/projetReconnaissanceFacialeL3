@@ -18,13 +18,17 @@ import static com.googlecode.javacv.cpp.opencv_core.cvLoad;
 import static com.googlecode.javacv.cpp.opencv_core.cvPoint;
 import static com.googlecode.javacv.cpp.opencv_core.cvRectangle;
 import static com.googlecode.javacv.cpp.opencv_core.cvSetImageROI;
+import static com.googlecode.javacv.cpp.opencv_core.cvSize;
 import static com.googlecode.javacv.cpp.opencv_highgui.cvLoadImage;
 import static com.googlecode.javacv.cpp.opencv_highgui.cvSaveImage;
 import static com.googlecode.javacv.cpp.opencv_imgproc.CV_BGR2GRAY;
 import static com.googlecode.javacv.cpp.opencv_imgproc.cvCvtColor;
+import static com.googlecode.javacv.cpp.opencv_imgproc.cvResize;
 import com.googlecode.javacv.cpp.opencv_objdetect.CvHaarClassifierCascade;
 import static com.googlecode.javacv.cpp.opencv_objdetect.cvHaarDetectObjects;
+import java.awt.Image;
 import java.sql.Timestamp;
+import static javax.swing.text.StyleConstants.Size;
 
 public class FaceDetection {
  
@@ -61,9 +65,13 @@ public class FaceDetection {
       //Coupe la photo au niveau des visages 
       cvSetImageROI(originalImage, r);
       IplImage cropped = cvCreateImage(cvGetSize(originalImage), originalImage.depth(), originalImage.nChannels());
-      cvCopy(originalImage, cropped);
+      cvCopy(originalImage,cropped);
       
-      cvSaveImage("img/trainingFace/User_Detection_"+args[1]+"_"+System.currentTimeMillis()+".jpg", originalImage);
+      //resize
+      IplImage destination = cvCreateImage(cvSize(160,160),originalImage.depth(),originalImage.nChannels());
+      cvResize(originalImage, destination);
+      
+      cvSaveImage("img/trainingFace/User_Detection_"+args[1]+"_"+System.currentTimeMillis()+".jpg", destination);
     }
  
     // On sauvegarde l'image dans un nouveau fichier

@@ -17,8 +17,8 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import projetreconnaissancefaciale.Controleurs.FaceDetection;
 import projetreconnaissancefaciale.Controleurs.InscriHandler;
+import projetreconnaissancefaciale.Controleurs.OpenCVFaceRecognizer;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
 import projetreconnaissancefaciale.Controleurs.comparaisonFace;
 import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
@@ -796,6 +796,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         takePhoto.setEnabled(true);
         clear.setEnabled(false);
         prendrePhotoHandler ab = new prendrePhotoHandler(photo);
+       
         Thread th = new Thread(ab);
         ab.start();
     }//GEN-LAST:event_clearMouseClicked
@@ -807,8 +808,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAjoutComponentHidden
 
     private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
-        String s = comparaisonFace.matchValue("img/temporyFace/test2.jpg");
-        System.out.println(s);
+        OpenCVFaceRecognizer.comparaison("img/temporyFace/test1.jpg");
     }//GEN-LAST:event_butValider1MouseClicked
 
     /**
