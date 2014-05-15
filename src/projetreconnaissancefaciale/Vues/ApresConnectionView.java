@@ -11,9 +11,13 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import projetreconnaissancefaciale.Controleurs.InscriHandler;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
 import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
 
@@ -418,7 +422,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                                 .addGap(67, 67, 67)
                                 .addComponent(labIma))
                             .addComponent(labTitre2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                         .addComponent(fileChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(butAnnuler4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -457,6 +461,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
 
         labParamDateNaiss.setText("Date de Naissance :");
 
+        textParamDateNaiss.setDateFormatString("dd/MM/yyyy");
+
         labParamVille.setText("Ville :");
 
         labParamPays.setText("Pays :");
@@ -484,39 +490,41 @@ public class ApresConnectionView extends javax.swing.JFrame {
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labTitre4)
                             .addGroup(panelParamLayout.createSequentialGroup()
+                                .addComponent(labPrenom)
+                                .addGap(100, 100, 100)
                                 .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(panelParamLayout.createSequentialGroup()
-                                        .addComponent(labParamInfo)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParamLayout.createSequentialGroup()
-                                        .addComponent(labNom)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(labPrenom, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParamLayout.createSequentialGroup()
                                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labParamDateNaiss)
-                                            .addComponent(labParamVille)
-                                            .addComponent(labParamPays))
-                                        .addGap(84, 84, 84)
-                                        .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textPrenom)
-                                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                            .addComponent(textParamVille)
-                                            .addComponent(textParamPays))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(labMDP2)
-                                        .addComponent(labMDP3))
-                                    .addComponent(labMDP1))
+                                            .addComponent(textPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labMDP2)
+                                            .addComponent(labMDP3)))
+                                    .addGroup(panelParamLayout.createSequentialGroup()
+                                        .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(labMDP1)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textMDP1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelParamLayout.createSequentialGroup()
+                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labParamDateNaiss)
+                                    .addComponent(labParamVille)
+                                    .addComponent(labParamPays)
+                                    .addComponent(labNom))
+                                .addGap(10, 10, 10)
+                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textParamVille, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelParamLayout.createSequentialGroup()
+                                .addComponent(labParamInfo)
+                                .addGap(38, 38, 38)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(110, Short.MAX_VALUE))))
         );
         panelParamLayout.setVerticalGroup(
             panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -551,11 +559,11 @@ public class ApresConnectionView extends javax.swing.JFrame {
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labParamPays)
                             .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
+                        .addGap(28, 28, 28)
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labParamInfo)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                         .addComponent(butAnnuler2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelParamLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -591,7 +599,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     }//GEN-LAST:event_butValiderActionPerformed
 
     private void butAnnuler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnuler2ActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_butAnnuler2ActionPerformed
 
     private void butAnnuler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnuler3ActionPerformed
@@ -646,19 +654,59 @@ public class ApresConnectionView extends javax.swing.JFrame {
 
     private void butValider3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValider3ActionPerformed
         try {
-            ParamUserHandler.Valider(textMDP1.toString(), textMDP2.toString(), textMDP3.toString());
-        } catch (NoSuchAlgorithmException ex) {
+            String mdp1 = textMDP1.getText().toString();
+            String mdp2 = textMDP2.getText().toString();
+            String mdp3 = textMDP3.getText().toString();
+            Date datePick = textParamDateNaiss.getDate();
+            String dateNaiss = ParamUserHandler.AjoutDateFRtoUS(datePick);
+            String nom = textNom.getText().toUpperCase().toString();
+            String prenom = textPrenom.getText().toString();
+            String ville = textParamVille.getText().toUpperCase().toString();
+            String pays = textParamPays.getText().toUpperCase().toString();
+            String remarque = textParamInfo.getText().toString();
+            String mail = ParamUserHandler.getLogin().toString();
+
+            //System.out.println(nom + prenom + mail + mdp2 + dateNaiss + ville + pays + remarque);
+            //vérifié
+            try {
+                if (ParamUserHandler.Valider(mdp1, mdp2, mdp3)) {
+                    System.out.println("Bien pour les mots de passe dans paramètres");
+                } else {
+                    System.out.println("Pas bien pour les mots de passe dans paramètres");
+                    return;
+                }
+                if (InscriHandler.isValid(1, textNom.getText()) == false) {
+                    return;
+                }
+
+                if (InscriHandler.isValid(1, textPrenom.getText()) == false) {
+                    return;
+                }
+
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ParamUserHandler.envoiInscription(nom, prenom, mail, mdp2, dateNaiss, ville, pays, remarque);
+        } catch (ParseException ex) {
             Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_butValider3ActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        //ParamUserHandler.RechercheInfoUser();
-        textNom.setText(ParamUserHandler.getUserNom());
+        textNom.setText(ParamUserHandler.getUserNom().toUpperCase());
         textPrenom.setText(ParamUserHandler.getUserPrenom());
-      //  textParamDateNaiss.setText(ParamUserHandler.getUserDateNaiss());
-        textParamVille.setText(ParamUserHandler.getUserVille());
-        textParamPays.setText(ParamUserHandler.getUserPays());
+        String s = ParamUserHandler.getUserDateNaiss();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateNaissBDD;
+        try {
+            dateNaissBDD = sdf.parse(s);
+            textParamDateNaiss.setDate(dateNaissBDD);
+        } catch (ParseException ex) {
+            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        textParamVille.setText(ParamUserHandler.getUserVille().toUpperCase());
+        textParamPays.setText(ParamUserHandler.getUserPays().toUpperCase());
         textParamInfo.setText(ParamUserHandler.getUserInfo());
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
@@ -667,34 +715,40 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labProfilNom.setText("");
         labProfilNom.setText("Bienvenue " + ParamUserHandler.getUserPrenom().toString() + " " + ParamUserHandler.getUserNom().toString().toUpperCase());
         labProfilDateNaiss.setText("");
-        labProfilDateNaiss.setText("Né(e) le : "+ParamUserHandler.getUserDateNaiss().toString());
+        try {
+            String s = ParamUserHandler.getUserDateNaiss();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date dateNaissBDD = sdf.parse(s);
+            labProfilDateNaiss.setText("Né(e) le : " + ParamUserHandler.AjoutDateUStoFR(dateNaissBDD));
+        } catch (ParseException ex) {
+            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         labProfilVille.setText("");
-        labProfilVille.setText("Ville : "+ParamUserHandler.getUserVille().toString());
+        labProfilVille.setText("Ville : " + ParamUserHandler.getUserVille().toString());
         labProfilPays.setText("");
-        labProfilPays.setText("Pays : "+ParamUserHandler.getUserPays().toString().toUpperCase());
+        labProfilPays.setText("Pays : " + ParamUserHandler.getUserPays().toString().toUpperCase());
         labProfilInfo.setText("");
-        labProfilInfo.setText("Informations : "+ParamUserHandler.getUserInfo().toString());
+        labProfilInfo.setText("Informations : " + ParamUserHandler.getUserInfo().toString());
     }//GEN-LAST:event_formWindowActivated
 
     private void butValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValiderMouseClicked
-        if(prendrePhotoHandler.verificationPhoto(ParamUserHandler.getLogin()) == false){
-            new apresPhotoView().setVisible(true); 
-        }else{
+        if (prendrePhotoHandler.verificationPhoto(ParamUserHandler.getLogin()) == false) {
+            new apresPhotoView().setVisible(true);
+        } else {
             prendrePhotoHandler.sauvegardePhoto(ParamUserHandler.getLogin());
         };
 
     }//GEN-LAST:event_butValiderMouseClicked
 
     private void panelAjoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAjoutMouseClicked
-       
     }//GEN-LAST:event_panelAjoutMouseClicked
 
     private void panelAjoutComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelAjoutComponentShown
-       takePhoto.setEnabled(true);
-       clear.setEnabled(false);
-       prendrePhotoHandler ab=new prendrePhotoHandler(photo);
-       Thread th=new Thread(ab);
-       ab.start();
+        takePhoto.setEnabled(true);
+        clear.setEnabled(false);
+        prendrePhotoHandler ab = new prendrePhotoHandler(photo);
+        Thread th = new Thread(ab);
+        ab.start();
     }//GEN-LAST:event_panelAjoutComponentShown
 
     private void takePhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takePhotoActionPerformed
@@ -702,8 +756,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
     }//GEN-LAST:event_takePhotoActionPerformed
 
     private void takePhotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_takePhotoMouseClicked
-        prendrePhotoHandler ab=new prendrePhotoHandler(photo);
-        Thread w=new Thread(ab);
+        prendrePhotoHandler ab = new prendrePhotoHandler(photo);
+        Thread w = new Thread(ab);
         ab.stop();
         takePhoto.setEnabled(false);
         clear.setEnabled(true);
@@ -712,8 +766,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
     private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
         takePhoto.setEnabled(true);
         clear.setEnabled(false);
-        prendrePhotoHandler ab=new prendrePhotoHandler(photo);
-        Thread th=new Thread(ab);
+        prendrePhotoHandler ab = new prendrePhotoHandler(photo);
+        Thread th = new Thread(ab);
         ab.start();
     }//GEN-LAST:event_clearMouseClicked
 

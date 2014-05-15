@@ -6,6 +6,10 @@ package projetreconnaissancefaciale.Controleurs;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import projetreconnaissancefaciale.Modeles.ParamUserModel;
@@ -64,13 +68,9 @@ public class ParamUserHandler {
             userPrenom=ParamUserModel.getUserPrenom();
             userPass=ParamUserModel.getUserPass();
             userDateNaiss=ParamUserModel.getUserDateNaiss();
-          //  System.out.println(userDateNaiss);
             userVille=ParamUserModel.getUserVille();
-          //  System.out.println(userVille);
             userPays=ParamUserModel.getUserPays();
-          //  System.out.println(userPays);
             userInfo=ParamUserModel.getUserInfo();
-          //  System.out.println(userInfo);
          
             
         } catch (SQLException ex) {
@@ -79,6 +79,7 @@ public class ParamUserHandler {
     }
     public static boolean Valider(String mdp, String mdp1 , String mdp2) throws NoSuchAlgorithmException{
         mdp=SHA1Handler.sha1(mdp);
+
         if (InscriHandler.areSame(userPass,mdp)){
         }else{
             return false;
@@ -91,7 +92,43 @@ public class ParamUserHandler {
         }else{
             return false;
         }
-        
+        if (InscriHandler.areSame(mdp1, mdp2)){
+        }else{
+            return false;
+        }
         return true;
     }
+
+    public static String AjoutDateFRtoUS(Date dateFr) throws ParseException {
+
+        DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat destinationFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Date date = dateFr;
+        String dateUS = destinationFormat.format(date);
+        Date d= destinationFormat.parse(dateUS);
+        return dateUS;
+    }
+
+    public static String AjoutDateUStoFR(Date dateUS) throws ParseException {
+
+        DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat destinationFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        Date date = dateUS;
+        String dateFR = destinationFormat.format(date);
+        Date d= destinationFormat.parse(dateFR);
+        return dateFR;
+    }
+       public static boolean envoiInscription(String nom, String prenom, String mail, String pass,String dateNaiss,String ville, String pays, String remarque) {
+        boolean retour = false;
+        try {
+            retour = ParamUserModel.ModifCompte(nom, prenom, mail, SHA1Handler.sha1(pass),dateNaiss,ville,pays,remarque);
+           
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(InscriHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retour;
+    }
 }
+
