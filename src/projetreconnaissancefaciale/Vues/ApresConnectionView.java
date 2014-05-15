@@ -17,8 +17,10 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import projetreconnaissancefaciale.Controleurs.FaceDetection;
 import projetreconnaissancefaciale.Controleurs.InscriHandler;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
+import projetreconnaissancefaciale.Controleurs.comparaisonFace;
 import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
 
 /**
@@ -781,6 +783,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         prendrePhotoHandler ab = new prendrePhotoHandler(photo);
         Thread w = new Thread(ab);
         ab.stop();
+        comparaisonFace.matchValue("img/userface/User_" + ParamUserHandler.getLogin() +".jpg");
         takePhoto.setEnabled(false);
         clear.setEnabled(true);
     }//GEN-LAST:event_takePhotoMouseClicked
