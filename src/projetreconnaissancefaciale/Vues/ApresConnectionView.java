@@ -808,7 +808,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAjoutComponentHidden
 
     private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
-        OpenCVFaceRecognizer.comparaison("img/temporyFace/test1.jpg");
+        OpenCVFaceRecognizer.comparaison("img/temporyFace/test.jpg");
     }//GEN-LAST:event_butValider1MouseClicked
 
     /**
