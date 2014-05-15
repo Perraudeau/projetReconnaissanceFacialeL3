@@ -1,5 +1,6 @@
 package projetreconnaissancefaciale.Controleurs;
 
+import com.googlecode.javacv.ObjectFinder;
 import com.googlecode.javacv.OpenCVFrameGrabber;
 import com.googlecode.javacv.cpp.opencv_core;
 import com.googlecode.javacv.cpp.opencv_core.IplImage;
@@ -52,13 +53,16 @@ public class prendrePhotoHandler implements Runnable {
      * @param user 
      */
     public static void sauvegardePhoto(String user){
-        String file = "img/User_" + user +".jpg";
+        String file = "img/userFace/User_" + user +".jpg";
           try {
                 final OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
                 try {
                     grabber.start();
                     opencv_core.IplImage img = grabber.grab();
                     cvSaveImage(file, img);
+                    //Detection of the face
+                    String s[] = {file,user};
+                    FaceDetection.main(s);
                     grabber.stop();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -73,7 +77,7 @@ public class prendrePhotoHandler implements Runnable {
      * @return true if the file exist however false.
      */
     public static boolean verificationPhoto(String user){
-        File f =  new File("img/User_" + user +".jpg");
+        File f =  new File("img/userFace/User_" + user +".jpg");
         boolean value = true;
         if (f.exists()){
             value = false;
@@ -88,7 +92,7 @@ public class prendrePhotoHandler implements Runnable {
      * @param user
      */
     public static void supprimerPhoto(String user){
-        File f =  new File("img/User_" + user +".jpg");
+        File f =  new File("img/userFace/User_" + user +".jpg");
         f.delete(); 
     }
     
