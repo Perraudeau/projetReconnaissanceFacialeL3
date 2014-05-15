@@ -55,6 +55,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labProfilImage = new javax.swing.JLabel();
         labProfilVille = new javax.swing.JLabel();
         labProfilPays = new javax.swing.JLabel();
+        labelPhoto = new javax.swing.JLabel();
         panelRecherche = new javax.swing.JPanel();
         labTitre3 = new javax.swing.JLabel();
         butAnnuler3 = new javax.swing.JButton();
@@ -89,7 +90,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         textMDP3 = new javax.swing.JPasswordField();
         textMDP2 = new javax.swing.JPasswordField();
         labParamDateNaiss = new javax.swing.JLabel();
-        textParamDateNaiss = new com.toedter.calendar.JDateChooser();
         labParamVille = new javax.swing.JLabel();
         labParamPays = new javax.swing.JLabel();
         textParamVille = new javax.swing.JTextField();
@@ -97,6 +97,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labParamInfo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textParamInfo = new javax.swing.JTextArea();
+        textParamDateNaiss = new com.toedter.calendar.JDateChooser();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -135,6 +136,14 @@ public class ApresConnectionView extends javax.swing.JFrame {
         panelProfilLayout.setHorizontalGroup(
             panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelProfilLayout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labTitre5)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProfilLayout.createSequentialGroup()
+                        .addComponent(labProfilNom)
+                        .addGap(25, 25, 25)))
+                .addContainerGap(275, Short.MAX_VALUE))
+            .addGroup(panelProfilLayout.createSequentialGroup()
                 .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelProfilLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -145,15 +154,10 @@ public class ApresConnectionView extends javax.swing.JFrame {
                             .addComponent(labProfilPays)))
                     .addGroup(panelProfilLayout.createSequentialGroup()
                         .addGap(236, 236, 236)
-                        .addComponent(labProfilImage))
-                    .addGroup(panelProfilLayout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labTitre5)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProfilLayout.createSequentialGroup()
-                                .addComponent(labProfilNom)
-                                .addGap(25, 25, 25)))))
-                .addContainerGap(275, Short.MAX_VALUE))
+                        .addComponent(labProfilImage)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelProfilLayout.setVerticalGroup(
             panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,18 +165,23 @@ public class ApresConnectionView extends javax.swing.JFrame {
                 .addComponent(labTitre5)
                 .addGap(18, 18, 18)
                 .addComponent(labProfilNom)
-                .addGap(15, 15, 15)
-                .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labProfilInfo)
+                .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelProfilLayout.createSequentialGroup()
-                        .addComponent(labProfilDateNaiss)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labProfilVille)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labProfilPays)
-                        .addGap(23, 23, 23)
-                        .addComponent(labProfilImage)))
-                .addContainerGap(282, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labProfilInfo)
+                            .addGroup(panelProfilLayout.createSequentialGroup()
+                                .addComponent(labProfilDateNaiss)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(labProfilVille)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(labProfilPays)
+                                .addGap(23, 23, 23)
+                                .addComponent(labProfilImage))))
+                    .addGroup(panelProfilLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(labelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mon Profil", panelProfil);
@@ -214,7 +223,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
             .addGroup(panelRechercheLayout.createSequentialGroup()
                 .addGap(146, 146, 146)
                 .addComponent(labImaRecherche)
-                .addContainerGap(479, Short.MAX_VALUE))
+                .addContainerGap(419, Short.MAX_VALUE))
             .addGroup(panelRechercheLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,7 +231,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                 .addComponent(butValider1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRechercheLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(290, Short.MAX_VALUE)
                 .addComponent(labTitre3)
                 .addGap(181, 181, 181))
             .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,6 +273,9 @@ public class ApresConnectionView extends javax.swing.JFrame {
             }
         });
         panelAjout.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                panelAjoutComponentHidden(evt);
+            }
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 panelAjoutComponentShown(evt);
             }
@@ -319,7 +331,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAjoutLayout.createSequentialGroup()
-                        .addGap(0, 256, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(labTitre1)
                         .addGap(178, 178, 178))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
@@ -334,7 +346,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
             .addGroup(panelAjoutLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
         panelAjoutLayout.setVerticalGroup(
             panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,8 +473,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
 
         labParamDateNaiss.setText("Date de Naissance :");
 
-        textParamDateNaiss.setDateFormatString("dd/MM/yyyy");
-
         labParamVille.setText("Ville :");
 
         labParamPays.setText("Pays :");
@@ -472,6 +482,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
         textParamInfo.setColumns(20);
         textParamInfo.setRows(5);
         jScrollPane1.setViewportView(textParamInfo);
+
+        textParamDateNaiss.setDateFormatString("dd/MM/yyyy");
 
         javax.swing.GroupLayout panelParamLayout = new javax.swing.GroupLayout(panelParam);
         panelParam.setLayout(panelParamLayout);
@@ -494,9 +506,9 @@ public class ApresConnectionView extends javax.swing.JFrame {
                                 .addGap(100, 100, 100)
                                 .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(panelParamLayout.createSequentialGroup()
-                                        .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(textPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(textPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(labMDP2)
@@ -549,8 +561,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
                             .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(labMDP3)
                                 .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labParamDateNaiss))
+                            .addComponent(labParamDateNaiss)
+                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labParamVille)
@@ -694,6 +706,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     }//GEN-LAST:event_butValider3ActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        ParamUserHandler.RechercheInfoUser();
         textNom.setText(ParamUserHandler.getUserNom().toUpperCase());
         textPrenom.setText(ParamUserHandler.getUserPrenom());
         String s = ParamUserHandler.getUserDateNaiss();
@@ -708,6 +721,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
         textParamVille.setText(ParamUserHandler.getUserVille().toUpperCase());
         textParamPays.setText(ParamUserHandler.getUserPays().toUpperCase());
         textParamInfo.setText(ParamUserHandler.getUserInfo());
+        ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/User_" + ParamUserHandler.getLogin() +".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+        labelPhoto.setIcon(imgProfil);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -732,14 +747,21 @@ public class ApresConnectionView extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void butValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValiderMouseClicked
+
         if (prendrePhotoHandler.verificationPhoto(ParamUserHandler.getLogin()) == false) {
             new apresPhotoView().setVisible(true);
         } else {
             prendrePhotoHandler.sauvegardePhoto(ParamUserHandler.getLogin());
+
+        if(prendrePhotoHandler.verificationPhoto(ParamUserHandler.getLogin()) == false){
+            new apresPhotoView().setVisible(true); 
+        }else{
+            new apresPhotoValidationView().setVisible(true);
+
         };
 
     }//GEN-LAST:event_butValiderMouseClicked
-
+    }
     private void panelAjoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAjoutMouseClicked
     }//GEN-LAST:event_panelAjoutMouseClicked
 
@@ -770,6 +792,12 @@ public class ApresConnectionView extends javax.swing.JFrame {
         Thread th = new Thread(ab);
         ab.start();
     }//GEN-LAST:event_clearMouseClicked
+
+    private void panelAjoutComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelAjoutComponentHidden
+       prendrePhotoHandler ab=new prendrePhotoHandler(photo);
+        Thread th=new Thread(ab);
+        ab.stop();
+    }//GEN-LAST:event_panelAjoutComponentHidden
 
     /**
      * @param args the command line arguments
@@ -842,6 +870,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     private javax.swing.JLabel labTitre3;
     private javax.swing.JLabel labTitre4;
     private javax.swing.JLabel labTitre5;
+    private javax.swing.JLabel labelPhoto;
     private javax.swing.JPanel panelAjout;
     private javax.swing.JPanel panelModif;
     private javax.swing.JPanel panelParam;
