@@ -13,12 +13,12 @@ import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
  *
  * @author Maison
  */
-public class apresPhotoView extends javax.swing.JFrame {
+public class apresPhotoValidationView extends javax.swing.JFrame {
 
     /**
      * Creates new form apresPhotoView
      */
-    public apresPhotoView() {
+    public apresPhotoValidationView() {
         this.setLocationRelativeTo(null);
         initComponents();
     }
@@ -57,7 +57,7 @@ public class apresPhotoView extends javax.swing.JFrame {
             }
         });
 
-        labelPhoto.setText("Une photo existe déjà pour vous, voulez vous l'écraser?");
+        labelPhoto.setText("               Voulez vous conservez cette photo?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,7 +94,8 @@ public class apresPhotoView extends javax.swing.JFrame {
     }//GEN-LAST:event_nonActionPerformed
 
     private void ouiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ouiActionPerformed
-        new apresPhotoValidationView().setVisible(true);
+        prendrePhotoHandler.supprimerPhoto(ParamUserHandler.getLogin());
+        prendrePhotoHandler.sauvegardePhoto(ParamUserHandler.getLogin());
         this.dispose();
     }//GEN-LAST:event_ouiActionPerformed
 
@@ -119,13 +120,13 @@ public class apresPhotoView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(apresPhotoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(apresPhotoValidationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(apresPhotoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(apresPhotoValidationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(apresPhotoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(apresPhotoValidationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(apresPhotoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(apresPhotoValidationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -133,7 +134,7 @@ public class apresPhotoView extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                new apresPhotoView().setVisible(true);
+                new apresPhotoValidationView().setVisible(true);
             }
         });
     }
