@@ -212,6 +212,11 @@ public class ApresConnectionView extends javax.swing.JFrame {
         });
 
         butValider1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butValider1MouseClicked(evt);
+            }
+        });
         butValider1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butValider1ActionPerformed(evt);
@@ -783,7 +788,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         prendrePhotoHandler ab = new prendrePhotoHandler(photo);
         Thread w = new Thread(ab);
         ab.stop();
-        comparaisonFace.matchValue("img/userface/User_" + ParamUserHandler.getLogin() +".jpg");
         takePhoto.setEnabled(false);
         clear.setEnabled(true);
     }//GEN-LAST:event_takePhotoMouseClicked
@@ -801,6 +805,11 @@ public class ApresConnectionView extends javax.swing.JFrame {
         Thread th=new Thread(ab);
         ab.stop();
     }//GEN-LAST:event_panelAjoutComponentHidden
+
+    private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
+        String s = comparaisonFace.matchValue("img/temporyFace/test2.jpg");
+        System.out.println(s);
+    }//GEN-LAST:event_butValider1MouseClicked
 
     /**
      * @param args the command line arguments

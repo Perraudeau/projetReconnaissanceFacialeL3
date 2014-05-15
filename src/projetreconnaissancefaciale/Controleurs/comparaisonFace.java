@@ -42,8 +42,8 @@ public class comparaisonFace {
 
                 h = cvCompareHist(hist, hist1, CV_COMP_CHISQR);
                 if(h<j){
+                    System.out.println(j);
                     j=h;
-                    System.out.println(b);
                     b=s;
                 } 
             }
