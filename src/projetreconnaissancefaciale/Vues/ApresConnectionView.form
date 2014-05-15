@@ -205,7 +205,7 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="290" max="32767" attributes="0"/>
                       <Component id="labTitre3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
                   </Group>
@@ -213,7 +213,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="fileChooseRecherche" min="-2" pref="508" max="-2" attributes="0"/>
-                          <EmptySpace pref="46" max="32767" attributes="0"/>
+                          <EmptySpace pref="106" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -229,7 +229,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                               <Component id="labImaRecherche" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="311" max="32767" attributes="0"/>
+                              <EmptySpace pref="348" max="32767" attributes="0"/>
                               <Component id="butAnnuler3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -243,7 +243,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="fileChooseRecherche" min="-2" pref="291" max="-2" attributes="0"/>
-                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <EmptySpace pref="107" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -343,7 +343,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="photo" min="-2" pref="547" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -459,7 +459,7 @@
                               <Component id="labIma" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="47" max="32767" attributes="0"/>
+                      <EmptySpace pref="107" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -564,9 +564,9 @@
                                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="textPrenom" min="-2" pref="103" max="-2" attributes="0"/>
-                                                  <Component id="textParamDateNaiss" min="-2" pref="103" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="textPrenom" pref="103" max="32767" attributes="0"/>
+                                                  <Component id="textParamDateNaiss" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -638,8 +638,8 @@
                                       <Component id="labMDP3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="textMDP3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="textParamDateNaiss" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="labParamDateNaiss" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textParamDateNaiss" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -656,7 +656,7 @@
                                   <Component id="labParamInfo" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="55" max="32767" attributes="0"/>
+                              <EmptySpace pref="86" max="32767" attributes="0"/>
                               <Component id="butAnnuler2" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -741,11 +741,6 @@
                 <Property name="text" type="java.lang.String" value="Date de Naissance :"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="textParamDateNaiss">
-              <Properties>
-                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="labParamVille">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ville :"/>
@@ -780,6 +775,11 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="com.toedter.calendar.JDateChooser" name="textParamDateNaiss">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
