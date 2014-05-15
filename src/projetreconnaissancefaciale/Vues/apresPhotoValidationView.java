@@ -96,6 +96,7 @@ public class apresPhotoValidationView extends javax.swing.JFrame {
     private void ouiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ouiActionPerformed
         prendrePhotoHandler.supprimerPhoto(ParamUserHandler.getLogin());
         prendrePhotoHandler.sauvegardePhoto(ParamUserHandler.getLogin());
+        labelPhoto.repaint();
         this.dispose();
     }//GEN-LAST:event_ouiActionPerformed
 

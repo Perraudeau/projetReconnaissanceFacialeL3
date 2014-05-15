@@ -721,7 +721,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         textParamVille.setText(ParamUserHandler.getUserVille().toUpperCase());
         textParamPays.setText(ParamUserHandler.getUserPays().toUpperCase());
         textParamInfo.setText(ParamUserHandler.getUserInfo());
-        ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/User_" + ParamUserHandler.getLogin() +".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+        ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/userface/User_" + ParamUserHandler.getLogin() +".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
         labelPhoto.setIcon(imgProfil);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
