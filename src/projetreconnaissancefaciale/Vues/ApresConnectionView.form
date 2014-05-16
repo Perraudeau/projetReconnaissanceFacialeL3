@@ -15,7 +15,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
     <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowActivated"/>
@@ -791,11 +790,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="com.toedter.calendar.JDateChooser" name="textParamDateNaiss">
-              <Properties>
-                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="butModifMdp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modifier le mot de passe"/>
@@ -811,6 +805,8 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Erreur mot de passe"/>
               </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="textParamDateNaiss">
             </Component>
           </SubComponents>
         </Container>

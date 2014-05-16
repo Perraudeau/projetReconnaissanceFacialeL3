@@ -97,9 +97,9 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labParamInfo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textParamInfo = new javax.swing.JTextArea();
-        textParamDateNaiss = new com.toedter.calendar.JDateChooser();
         butModifMdp = new javax.swing.JButton();
         labErreurMdp = new javax.swing.JLabel();
+        textParamDateNaiss = new com.toedter.calendar.JDateChooser();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -489,8 +489,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         textParamInfo.setColumns(20);
         textParamInfo.setRows(5);
         jScrollPane1.setViewportView(textParamInfo);
-
-        textParamDateNaiss.setDateFormatString("dd/MM/yyyy");
 
         butModifMdp.setText("Modifier le mot de passe");
         butModifMdp.addActionListener(new java.awt.event.ActionListener() {
