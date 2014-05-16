@@ -120,10 +120,10 @@ public class ParamUserModel {
         setUserInfo(userInfo);
 
     }
-        public static boolean ModifCompte(String nom,String prenom,String email,String password, String dateNaiss, String ville, String pays, String remarque){
+        public static boolean ModifCompte(int num,String nom,String prenom,String email,String password, String dateNaiss, String ville, String pays, String remarque){
         boolean retour = false;
         String userId = "";
-        System.out.println(nom+prenom+email+password+dateNaiss+ville+pays+remarque);
+
         try {
             /**
              * requete pour recuperer l'id de l'enregistrement precedement cree 
@@ -137,15 +137,16 @@ public class ParamUserModel {
             
             //On recuper l'id dans la variable userId
             if(rsMail.next()){
-                System.out.println("l'email existe");
+                
             }else{
-                System.out.println("l'email n'existe pas");
+                
                 return retour=false;
                 
             }
             /**
              * Requete pour l'insertion d'informations dans la table utilisateur
              */
+            if (num==1){
             PreparedStatement psUser = ConnectionBddModel.getInstance().prepareStatement
                 ("UPDATE reconnaissancefaciale.utilisateur "
                 + "SET password = ? "
@@ -156,6 +157,8 @@ public class ParamUserModel {
 
             //On execute la requete
             psUser.executeUpdate();
+                
+            }
             
             /**
              * requete pour recuperer l'id de l'enregistrement precedement cree 

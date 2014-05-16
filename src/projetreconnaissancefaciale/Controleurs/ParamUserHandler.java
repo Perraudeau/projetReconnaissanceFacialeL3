@@ -19,6 +19,7 @@ import projetreconnaissancefaciale.Modeles.ParamUserModel;
  * @author Alexis
  */
 public class ParamUserHandler {
+
     private static String login;
     private static String userNom;
     private static String userPrenom;
@@ -36,10 +37,6 @@ public class ParamUserHandler {
         return userVille;
     }
 
-    public static String getUserPass() {
-        return userPass;
-    }
-
     public static String getUserPays() {
         return userPays;
     }
@@ -47,7 +44,6 @@ public class ParamUserHandler {
     public static String getUserInfo() {
         return userInfo;
     }
-    
 
     public static String getUserNom() {
         return userNom;
@@ -64,40 +60,41 @@ public class ParamUserHandler {
     public static void setLogin(String login) {
         ParamUserHandler.login = login;
     }
-    
-    public static void RechercheInfoUser(){
+
+    public static void RechercheInfoUser() {
         try {
             ParamUserModel.RecupInfoUser(login);
-            userNom=ParamUserModel.getUserNom();
-            userPrenom=ParamUserModel.getUserPrenom();
-            userPass=ParamUserModel.getUserPass();
-            userDateNaiss=ParamUserModel.getUserDateNaiss();
-            userVille=ParamUserModel.getUserVille();
-            userPays=ParamUserModel.getUserPays();
-            userInfo=ParamUserModel.getUserInfo();
-         
-            
+            userNom = ParamUserModel.getUserNom();
+            userPrenom = ParamUserModel.getUserPrenom();
+            userPass = ParamUserModel.getUserPass();
+            userDateNaiss = ParamUserModel.getUserDateNaiss();
+            userVille = ParamUserModel.getUserVille();
+            userPays = ParamUserModel.getUserPays();
+            userInfo = ParamUserModel.getUserInfo();
+
+
         } catch (SQLException ex) {
             Logger.getLogger(ParamUserHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public static boolean Valider(String mdp, String mdp1 , String mdp2) throws NoSuchAlgorithmException{
-        mdp=SHA1Handler.sha1(mdp);
 
-        if (InscriHandler.areSame(userPass,mdp)){
-        }else{
+    public static boolean Valider(String mdp, String mdp1, String mdp2) throws NoSuchAlgorithmException {
+        mdp = SHA1Handler.sha1(mdp);
+
+        if (InscriHandler.areSame(userPass, mdp)) {
+        } else {
             return false;
         }
-        if (InscriHandler.isValid(3, mdp1)){
-        }else{ 
+        if (InscriHandler.isValid(3, mdp1)) {
+        } else {
             return false;
         }
-        if (InscriHandler.isValid(3, mdp2)){
-        }else{
+        if (InscriHandler.isValid(3, mdp2)) {
+        } else {
             return false;
         }
-        if (InscriHandler.areSame(mdp1, mdp2)){
-        }else{
+        if (InscriHandler.areSame(mdp1, mdp2)) {
+        } else {
             return false;
         }
         return true;
@@ -110,7 +107,7 @@ public class ParamUserHandler {
 
         Date date = dateFr;
         String dateUS = destinationFormat.format(date);
-        Date d= destinationFormat.parse(dateUS);
+        Date d = destinationFormat.parse(dateUS);
         return dateUS;
     }
 
@@ -121,18 +118,21 @@ public class ParamUserHandler {
 
         Date date = dateUS;
         String dateFR = destinationFormat.format(date);
-        Date d= destinationFormat.parse(dateFR);
+        Date d = destinationFormat.parse(dateFR);
         return dateFR;
     }
-       public static boolean envoiInscription(String nom, String prenom, String mail, String pass,String dateNaiss,String ville, String pays, String remarque) {
+
+    public static boolean envoiInscription(int num,String nom, String prenom, String mail, String pass, String dateNaiss, String ville, String pays, String remarque) {
         boolean retour = false;
+
         try {
-            retour = ParamUserModel.ModifCompte(nom, prenom, mail, SHA1Handler.sha1(pass),dateNaiss,ville,pays,remarque);
-           
+            retour = ParamUserModel.ModifCompte(num,nom, prenom, mail, SHA1Handler.sha1(pass), dateNaiss, ville, pays, remarque);
+
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(InscriHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return retour;
+        return retour ;
     }
-}
+    
 
+}
