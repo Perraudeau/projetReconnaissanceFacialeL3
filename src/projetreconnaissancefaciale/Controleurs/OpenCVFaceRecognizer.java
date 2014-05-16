@@ -1,4 +1,5 @@
 package projetreconnaissancefaciale.Controleurs;
+
 import com.googlecode.javacv.cpp.opencv_contrib.FaceRecognizer;
 import static com.googlecode.javacv.cpp.opencv_contrib.createFisherFaceRecognizer;
 import com.googlecode.javacv.cpp.opencv_core;
@@ -25,16 +26,24 @@ import java.io.File;
 import java.io.FilenameFilter;
 import projetreconnaissancefaciale.Modeles.UtilisateurModel;
 
-
+/**
+ * 
+ * @author Victor
+ */
 public class OpenCVFaceRecognizer {
     
      // le fichier de detection Cascade utilise 
     private static final String CASCADE_FILE = "img/haarcascade_frontalface_alt.xml";
+    /**
+     * Compare une photo avec la base de visage et retourne l'id de l'utilisateur le plus probable
+     * @param photo chemin de la photo
+     * @return idUser int
+     */
+    public static int comparaison(String photo) {
     
-    public static void comparaison(String test) {
-        
+    int predictedLabel = 0;
     // Chargement de l'image de base
-    IplImage originalImage = cvLoadImage(test, 1);
+    IplImage originalImage = cvLoadImage(photo, 1);
  
     // On crée une "grayscale image" pour la reconnaissance.
     IplImage grayImage = IplImage.create(originalImage.width(),
@@ -63,7 +72,7 @@ public class OpenCVFaceRecognizer {
       IplImage cropped = cvCreateImage(cvGetSize(originalImage), originalImage.depth(), originalImage.nChannels());
       cvCopy(originalImage,cropped);
       
-      //resize
+      //redimensionnement des photos
       IplImage destination = cvCreateImage(cvSize(160,160),originalImage.depth(),originalImage.nChannels());
       cvResize(originalImage, destination);
       
@@ -93,7 +102,6 @@ public class OpenCVFaceRecognizer {
             img = cvLoadImage(image.getAbsolutePath());
             String email = image.getName().split("_")[2];
             label = UtilisateurModel.IdGetter(email);
-            //label = Integer.parseInt(image.getName().split("\\-")[0]);
 
             grayImg = IplImage.create(img.width(), img.height(), IPL_DEPTH_8U, 1);
 
@@ -108,17 +116,18 @@ public class OpenCVFaceRecognizer {
 
         IplImage greyTestImage = IplImage.create(destination.width(), destination.height(), IPL_DEPTH_8U, 1);
 
+        //Méthode de reconnaissance
         FaceRecognizer faceRecognizer = createFisherFaceRecognizer();
-        // FaceRecognizer faceRecognizer = createEigenFaceRecognizer();
-        // FaceRecognizer faceRecognizer = createLBPHFaceRecognizer()
 
         faceRecognizer.train(images, labels);
 
         cvCvtColor(destination, greyTestImage, CV_BGR2GRAY);
 
-        int predictedLabel = faceRecognizer.predict(greyTestImage);
+        predictedLabel = faceRecognizer.predict(greyTestImage);
 
-        System.out.println("Predicted label: " + predictedLabel);
-    }
-}
+        
+    } 
+    return predictedLabel;
+  }
+ 
 }

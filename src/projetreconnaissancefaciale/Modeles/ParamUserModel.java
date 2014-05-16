@@ -203,4 +203,40 @@ public class ParamUserModel {
         }
         return retour;
     }
+          public static String[] getUserWithId(int id) throws SQLException {
+        String[] s = new String[6];
+        try {
+            /**
+             * requete pour recuperer les information
+             */
+            PreparedStatement psRecup = ConnectionBddModel.getInstance().prepareStatement(
+                    "SELECT information.nom,information.prenom,information.dateDeNaissance,information.ville , information.pays, information.remarque"
+                    + " FROM utilisateur,information "
+                    + "WHERE information.idUtilisateur=utilisateur.id "
+                    + "AND utilisateur.id = ?");
+            psRecup.setInt(1, id);
+            //On execute la requete
+            ResultSet rsRecup = psRecup.executeQuery();
+            while (rsRecup.next()) {
+                userNom = rsRecup.getString(1);
+                userPrenom = rsRecup.getString(2);
+                userVille = rsRecup.getString(3);
+                userPays = rsRecup.getString(4);
+                userDateNaiss = rsRecup.getString(5);
+                userInfo = rsRecup.getString(6);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erreur dans la requête de recuperation des informations avec l'id");
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        s[0] = userNom;
+        s[1] = userPrenom;
+        s[2] = userVille;
+        s[3] = userPays;
+        s[4] = userDateNaiss;
+        s[5] = userInfo;
+        return s;
+    }
 }
+

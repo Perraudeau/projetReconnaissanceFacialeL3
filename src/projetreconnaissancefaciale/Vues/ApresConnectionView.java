@@ -4,13 +4,11 @@
  */
 package projetreconnaissancefaciale.Vues;
 
-import com.googlecode.javacv.OpenCVFrameGrabber;
-import com.googlecode.javacv.cpp.opencv_core;
-import static com.googlecode.javacv.cpp.opencv_highgui.cvSaveImage;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,8 +18,8 @@ import javax.swing.ImageIcon;
 import projetreconnaissancefaciale.Controleurs.InscriHandler;
 import projetreconnaissancefaciale.Controleurs.OpenCVFaceRecognizer;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
-import projetreconnaissancefaciale.Controleurs.comparaisonFace;
 import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
+import projetreconnaissancefaciale.Modeles.ParamUserModel;
 
 /**
  *
@@ -848,7 +846,13 @@ public class ApresConnectionView extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAjoutComponentHidden
 
     private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
-        OpenCVFaceRecognizer.comparaison("img/temporyFace/test.jpg");
+        int i = OpenCVFaceRecognizer.comparaison("img/temporyFace/test.jpg");
+        try {
+            String[] s =ParamUserModel.getUserWithId(i);
+            System.out.println(s[1]);
+        } catch (SQLException ex) {
+            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_butValider1MouseClicked
 
     private void butModifMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butModifMdpActionPerformed
@@ -904,6 +908,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
             }
         });
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAnnuler;
     private javax.swing.JButton butAnnuler2;
