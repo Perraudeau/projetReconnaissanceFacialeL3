@@ -36,6 +36,10 @@ public class ParamUserHandler {
         return userVille;
     }
 
+    public static String getUserPass() {
+        return userPass;
+    }
+
     public static String getUserPays() {
         return userPays;
     }

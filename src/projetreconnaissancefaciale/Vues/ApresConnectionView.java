@@ -100,6 +100,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         textParamInfo = new javax.swing.JTextArea();
         textParamDateNaiss = new com.toedter.calendar.JDateChooser();
+        butModifMdp = new javax.swing.JButton();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -492,6 +493,13 @@ public class ApresConnectionView extends javax.swing.JFrame {
 
         textParamDateNaiss.setDateFormatString("dd/MM/yyyy");
 
+        butModifMdp.setText("Modifier le mot de passe");
+        butModifMdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butModifMdpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelParamLayout = new javax.swing.GroupLayout(panelParam);
         panelParam.setLayout(panelParamLayout);
         panelParamLayout.setHorizontalGroup(
@@ -509,40 +517,43 @@ public class ApresConnectionView extends javax.swing.JFrame {
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labTitre4)
                             .addGroup(panelParamLayout.createSequentialGroup()
-                                .addComponent(labPrenom)
-                                .addGap(100, 100, 100)
-                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(panelParamLayout.createSequentialGroup()
-                                        .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labMDP2)
-                                            .addComponent(labMDP3)))
-                                    .addGroup(panelParamLayout.createSequentialGroup()
-                                        .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(labMDP1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textMDP1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(panelParamLayout.createSequentialGroup()
-                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labParamDateNaiss)
-                                    .addComponent(labParamVille)
-                                    .addComponent(labParamPays)
-                                    .addComponent(labNom))
-                                .addGap(10, 10, 10)
-                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textParamVille, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(panelParamLayout.createSequentialGroup()
                                 .addComponent(labParamInfo)
                                 .addGap(38, 38, 38)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParamLayout.createSequentialGroup()
+                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labParamDateNaiss)
+                                        .addComponent(labParamVille)
+                                        .addComponent(labParamPays)
+                                        .addComponent(labNom))
+                                    .addGap(10, 10, 10)
+                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textParamVille, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(butModifMdp))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParamLayout.createSequentialGroup()
+                                    .addComponent(labPrenom)
+                                    .addGap(100, 100, 100)
+                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(panelParamLayout.createSequentialGroup()
+                                            .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(textPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                                .addComponent(textParamDateNaiss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(labMDP2)
+                                                .addComponent(labMDP3)))
+                                        .addGroup(panelParamLayout.createSequentialGroup()
+                                            .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(33, 33, 33)
+                                            .addComponent(labMDP1)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textMDP1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(110, Short.MAX_VALUE))))
         );
         panelParamLayout.setVerticalGroup(
@@ -570,14 +581,19 @@ public class ApresConnectionView extends javax.swing.JFrame {
                                 .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(labParamDateNaiss)
                             .addComponent(textParamDateNaiss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labParamVille)
-                            .addComponent(textParamVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labParamPays)
-                            .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelParamLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labParamVille)
+                                    .addComponent(textParamVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labParamPays)
+                                    .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelParamLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(butModifMdp)))
                         .addGap(28, 28, 28)
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labParamInfo)
@@ -685,25 +701,27 @@ public class ApresConnectionView extends javax.swing.JFrame {
             String remarque = textParamInfo.getText().toString();
             String mail = ParamUserHandler.getLogin().toString();
 
-            //System.out.println(nom + prenom + mail + mdp2 + dateNaiss + ville + pays + remarque);
-            //vérifié
-            try {
-                if (ParamUserHandler.Valider(mdp1, mdp2, mdp3)) {
-                    System.out.println("Bien pour les mots de passe dans paramètres");
-                } else {
-                    System.out.println("Pas bien pour les mots de passe dans paramètres");
-                    return;
-                }
-                if (InscriHandler.isValid(1, textNom.getText()) == false) {
-                    return;
-                }
+            if (textMDP1.isVisible()) {
+                try {
+                    if (ParamUserHandler.Valider(mdp1, mdp2, mdp3)) {
+                        System.out.println("Bien pour les mots de passe dans paramètres");
+                    } else {
+                        System.out.println("Pas bien pour les mots de passe dans paramètres");
+                        return;
+                    }
+                    if (InscriHandler.isValid(1, textNom.getText()) == false) {
+                        return;
+                    }
 
-                if (InscriHandler.isValid(1, textPrenom.getText()) == false) {
-                    return;
-                }
+                    if (InscriHandler.isValid(1, textPrenom.getText()) == false) {
+                        return;
+                    }
 
-            } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                mdp2 = ParamUserHandler.getUserPass();
             }
             ParamUserHandler.envoiInscription(nom, prenom, mail, mdp2, dateNaiss, ville, pays, remarque);
         } catch (ParseException ex) {
@@ -728,12 +746,19 @@ public class ApresConnectionView extends javax.swing.JFrame {
         textParamVille.setText(ParamUserHandler.getUserVille().toUpperCase());
         textParamPays.setText(ParamUserHandler.getUserPays().toUpperCase());
         textParamInfo.setText(ParamUserHandler.getUserInfo());
-        ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/userface/User_" + ParamUserHandler.getLogin() +".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+        ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/userface/User_" + ParamUserHandler.getLogin() + ".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
         labelPhoto.setIcon(imgProfil);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         ParamUserHandler.RechercheInfoUser();
+        labMDP1.setVisible(false);
+        labMDP2.setVisible(false);
+        labMDP3.setVisible(false);
+        textMDP1.setVisible(false);
+        textMDP2.setVisible(false);
+        textMDP3.setVisible(false);
+
         labProfilNom.setText("");
         labProfilNom.setText("Bienvenue " + ParamUserHandler.getUserPrenom().toString() + " " + ParamUserHandler.getUserNom().toString().toUpperCase());
         labProfilDateNaiss.setText("");
@@ -760,12 +785,12 @@ public class ApresConnectionView extends javax.swing.JFrame {
         } else {
             prendrePhotoHandler.sauvegardePhoto(ParamUserHandler.getLogin());
 
-        if(prendrePhotoHandler.verificationPhoto(ParamUserHandler.getLogin()) == false){
-            new apresPhotoView().setVisible(true); 
-        }else{
-            new apresPhotoValidationView().setVisible(true);
+            if (prendrePhotoHandler.verificationPhoto(ParamUserHandler.getLogin()) == false) {
+                new apresPhotoView().setVisible(true);
+            } else {
+                new apresPhotoValidationView().setVisible(true);
 
-        };
+            };
 
     }//GEN-LAST:event_butValiderMouseClicked
     }
@@ -796,20 +821,38 @@ public class ApresConnectionView extends javax.swing.JFrame {
         takePhoto.setEnabled(true);
         clear.setEnabled(false);
         prendrePhotoHandler ab = new prendrePhotoHandler(photo);
-       
+
         Thread th = new Thread(ab);
         ab.start();
     }//GEN-LAST:event_clearMouseClicked
 
     private void panelAjoutComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panelAjoutComponentHidden
-       prendrePhotoHandler ab=new prendrePhotoHandler(photo);
-        Thread th=new Thread(ab);
+        prendrePhotoHandler ab = new prendrePhotoHandler(photo);
+        Thread th = new Thread(ab);
         ab.stop();
     }//GEN-LAST:event_panelAjoutComponentHidden
 
     private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
         OpenCVFaceRecognizer.comparaison("img/temporyFace/test.jpg");
     }//GEN-LAST:event_butValider1MouseClicked
+
+    private void butModifMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butModifMdpActionPerformed
+        if (labMDP1.isVisible()) {
+            labMDP1.setVisible(false);
+            labMDP2.setVisible(false);
+            labMDP3.setVisible(false);
+            textMDP1.setVisible(false);
+            textMDP2.setVisible(false);
+            textMDP3.setVisible(false);
+        } else {
+            labMDP1.setVisible(true);
+            labMDP2.setVisible(true);
+            labMDP3.setVisible(true);
+            textMDP1.setVisible(true);
+            textMDP2.setVisible(true);
+            textMDP3.setVisible(true);
+        }
+    }//GEN-LAST:event_butModifMdpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -850,6 +893,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     private javax.swing.JButton butAnnuler2;
     private javax.swing.JButton butAnnuler3;
     private javax.swing.JButton butAnnuler4;
+    private javax.swing.JButton butModifMdp;
     private javax.swing.JButton butValider;
     private javax.swing.JButton butValider1;
     private javax.swing.JButton butValider2;
