@@ -93,7 +93,6 @@ public class ParamUserModel {
                     + "WHERE information.idUtilisateur=utilisateur.id "
                     + "AND email = ?");
             psRecup.setString(1, login);
-            System.out.println(psRecup);
             //On execute la requete
 
             ResultSet rsRecup = psRecup.executeQuery();
@@ -131,7 +130,6 @@ public class ParamUserModel {
             PreparedStatement psMailUser = ConnectionBddModel.getInstance().prepareStatement
                 ("SELECT email FROM utilisateur WHERE email = ?");
             psMailUser.setString(1,email);
-            System.out.println(psMailUser);
             //On execute la requete
             ResultSet rsMail = psMailUser.executeQuery();
             
@@ -166,7 +164,6 @@ public class ParamUserModel {
             PreparedStatement psIdUser = ConnectionBddModel.getInstance().prepareStatement
                 ("SELECT id FROM utilisateur WHERE email = ?");
             psIdUser.setString(1,email);
-            System.out.println(psIdUser);
             //On execute la requete
             ResultSet rs = psIdUser.executeQuery();
             
@@ -186,7 +183,6 @@ public class ParamUserModel {
                 ("UPDATE reconnaissancefaciale.information "
                 + "SET nom = ? ,prenom =? ,dateDeNaissance=? ,ville=? ,pays=? ,remarque=? "
                 + "WHERE idUtilisateur='"+userId+"'");
-            System.out.println(psInfo);
             psInfo.setString(1,nom);
             psInfo.setString(2,prenom);
             psInfo.setString(3,dateNaiss);

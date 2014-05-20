@@ -30,7 +30,6 @@ public class InscriptionModel {
             PreparedStatement psMailUser = ConnectionBddModel.getInstance().prepareStatement
                 ("SELECT email FROM utilisateur WHERE email = ?");
             psMailUser.setString(1,email);
-            System.out.println(psMailUser);
             //On execute la requete
             ResultSet rsMail = psMailUser.executeQuery();
             
@@ -59,7 +58,6 @@ public class InscriptionModel {
             PreparedStatement psIdUser = ConnectionBddModel.getInstance().prepareStatement
                 ("SELECT id FROM utilisateur WHERE email = ?");
             psIdUser.setString(1,email);
-            System.out.println(psIdUser);
             //On execute la requete
             ResultSet rs = psIdUser.executeQuery();
             
@@ -78,7 +76,6 @@ public class InscriptionModel {
                 ("INSERT INTO reconnaissancefaciale.information "
                 + "(id ,idUtilisateur ,nom ,prenom ,dateDeNaissance ,ville ,pays ,remarque)"
                 + "VALUES (NULL ,?,?,?, '1900-01-01', '', '', '');");
-            System.out.println(psInfo);
             psInfo.setString(1,userId);
             psInfo.setString(2,name);
             psInfo.setString(3,surname);

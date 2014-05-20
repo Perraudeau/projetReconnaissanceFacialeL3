@@ -43,6 +43,7 @@ public class OpenCVFaceRecognizer {
     
     int predictedLabel = 0;
     // Chargement de l'image de base
+        System.out.println(photo);
     IplImage originalImage = cvLoadImage(photo, 1);
  
     // On crée une "grayscale image" pour la reconnaissance.
