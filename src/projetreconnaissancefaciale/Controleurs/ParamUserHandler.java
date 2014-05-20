@@ -71,6 +71,7 @@ public class ParamUserHandler {
             userVille = ParamUserModel.getUserVille();
             userPays = ParamUserModel.getUserPays();
             userInfo = ParamUserModel.getUserInfo();
+            
 
 
         } catch (SQLException ex) {
