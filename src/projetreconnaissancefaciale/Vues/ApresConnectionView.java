@@ -4,9 +4,12 @@
  */
 package projetreconnaissancefaciale.Vues;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -15,6 +18,8 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import projetreconnaissancefaciale.Controleurs.InscriHandler;
 import projetreconnaissancefaciale.Controleurs.OpenCVFaceRecognizer;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
@@ -26,7 +31,9 @@ import projetreconnaissancefaciale.Modeles.ParamUserModel;
  * @author Alexis
  */
 public class ApresConnectionView extends javax.swing.JFrame {
-ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/userface/User_" + ParamUserHandler.getLogin() + ".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+
+    ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/userface/User_" + ParamUserHandler.getLogin() + ".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+
     /**
      * Creates new form ApresConnectionView
      */
@@ -57,6 +64,7 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         labProfilVille = new javax.swing.JLabel();
         labProfilPays = new javax.swing.JLabel();
         labelPhoto = new javax.swing.JLabel();
+        butAnnuler5 = new javax.swing.JButton();
         panelRecherche = new javax.swing.JPanel();
         labTitre3 = new javax.swing.JLabel();
         butAnnuler3 = new javax.swing.JButton();
@@ -106,6 +114,8 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setOpacity(0.95F);
+        setPreferredSize(new java.awt.Dimension(720, 520));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -113,78 +123,100 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
             }
         });
 
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(570, 463));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(710, 510));
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTabbedPane1MouseClicked(evt);
             }
         });
 
+        panelProfil.setBackground(new java.awt.Color(227, 227, 227));
+        panelProfil.setPreferredSize(new java.awt.Dimension(700, 500));
+
         labTitre5.setFont(new java.awt.Font("Chiller", 1, 48)); // NOI18N
         labTitre5.setForeground(new java.awt.Color(62, 96, 111));
         labTitre5.setText("RecoFace");
 
+        labProfilNom.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         labProfilNom.setText("Bienvenue Nom Prenom");
 
+        labProfilDateNaiss.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labProfilDateNaiss.setText("Né(e) le :  ");
 
+        labProfilInfo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labProfilInfo.setText("Informations :");
 
+        labProfilVille.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labProfilVille.setText("Ville :");
 
+        labProfilPays.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labProfilPays.setText("Pays :");
+
+        labelPhoto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+
+        butAnnuler5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
+        butAnnuler5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), null));
+        butAnnuler5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        butAnnuler5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAnnuler5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelProfilLayout = new javax.swing.GroupLayout(panelProfil);
         panelProfil.setLayout(panelProfilLayout);
         panelProfilLayout.setHorizontalGroup(
             panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelProfilLayout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labTitre5)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProfilLayout.createSequentialGroup()
-                        .addComponent(labProfilNom)
-                        .addGap(25, 25, 25)))
-                .addContainerGap(339, Short.MAX_VALUE))
-            .addGroup(panelProfilLayout.createSequentialGroup()
                 .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelProfilLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labProfilInfo)
-                            .addComponent(labProfilDateNaiss)
-                            .addComponent(labProfilVille)
-                            .addComponent(labProfilPays)))
+                            .addComponent(butAnnuler5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelProfilLayout.createSequentialGroup()
+                                .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labProfilInfo)
+                                    .addComponent(labProfilDateNaiss)
+                                    .addComponent(labProfilVille)
+                                    .addComponent(labProfilPays))
+                                .addGap(189, 189, 189)
+                                .addComponent(labelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panelProfilLayout.createSequentialGroup()
                         .addGap(236, 236, 236)
-                        .addComponent(labProfilImage)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addComponent(labProfilImage))
+                    .addGroup(panelProfilLayout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(labProfilNom)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProfilLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labTitre5)
+                .addGap(265, 265, 265))
         );
         panelProfilLayout.setVerticalGroup(
             panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelProfilLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labProfilInfo)
+                    .addGroup(panelProfilLayout.createSequentialGroup()
+                        .addComponent(labProfilDateNaiss)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labProfilVille)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labProfilPays)
+                        .addGap(23, 23, 23)
+                        .addComponent(labProfilImage)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(butAnnuler5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+            .addGroup(panelProfilLayout.createSequentialGroup()
                 .addComponent(labTitre5)
                 .addGap(18, 18, 18)
                 .addComponent(labProfilNom)
-                .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelProfilLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(panelProfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labProfilInfo)
-                            .addGroup(panelProfilLayout.createSequentialGroup()
-                                .addComponent(labProfilDateNaiss)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labProfilVille)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labProfilPays)
-                                .addGap(23, 23, 23)
-                                .addComponent(labProfilImage))))
-                    .addGroup(panelProfilLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(labelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mon Profil", panelProfil);
@@ -194,18 +226,21 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         labTitre3.setText("RecoFace");
 
         butAnnuler3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
+        butAnnuler3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         butAnnuler3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butAnnuler3ActionPerformed(evt);
             }
         });
 
+        fileChooseRecherche.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         fileChooseRecherche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fileChooseRechercheActionPerformed(evt);
             }
         });
 
+        labImaRecherche.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
         labImaRecherche.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labImaRechercheMouseClicked(evt);
@@ -213,6 +248,7 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         });
 
         butValider1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         butValider1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 butValider1MouseClicked(evt);
@@ -229,46 +265,42 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         panelRechercheLayout.setHorizontalGroup(
             panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRechercheLayout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(labImaRecherche)
-                .addContainerGap(543, Short.MAX_VALUE))
-            .addGroup(panelRechercheLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(butValider1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRechercheLayout.createSequentialGroup()
-                .addContainerGap(354, Short.MAX_VALUE)
-                .addComponent(labTitre3)
-                .addGap(181, 181, 181))
-            .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelRechercheLayout.createSequentialGroup()
-                    .addGap(11, 11, 11)
-                    .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(170, Short.MAX_VALUE)))
+            .addGroup(panelRechercheLayout.createSequentialGroup()
+                .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRechercheLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRechercheLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(labImaRecherche))
+                    .addGroup(panelRechercheLayout.createSequentialGroup()
+                        .addGap(265, 265, 265)
+                        .addComponent(labTitre3)))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         panelRechercheLayout.setVerticalGroup(
             panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRechercheLayout.createSequentialGroup()
-                .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRechercheLayout.createSequentialGroup()
+                .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelRechercheLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(butValider1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRechercheLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(labImaRecherche)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
-                        .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelRechercheLayout.createSequentialGroup()
-                        .addComponent(labTitre3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelRechercheLayout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addComponent(labImaRecherche))
+                            .addComponent(labTitre3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelRechercheLayout.createSequentialGroup()
-                    .addGap(74, 74, 74)
-                    .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(107, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Rechercher un utilisateur", panelRecherche);
@@ -294,6 +326,7 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         labTitre1.setText("RecoFace");
 
         butAnnuler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
+        butAnnuler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         butAnnuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butAnnulerActionPerformed(evt);
@@ -301,6 +334,7 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         });
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(153, 153, 153)));
         butValider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 butValiderMouseClicked(evt);
@@ -312,7 +346,10 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
             }
         });
 
+        takePhoto.setBackground(new java.awt.Color(204, 204, 204));
+        takePhoto.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         takePhoto.setText("Prendre une photo");
+        takePhoto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         takePhoto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 takePhotoMouseClicked(evt);
@@ -324,12 +361,17 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
             }
         });
 
+        clear.setBackground(new java.awt.Color(204, 204, 204));
+        clear.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         clear.setText("Recommencer");
+        clear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         clear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clearMouseClicked(evt);
             }
         });
+
+        photo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout panelAjoutLayout = new javax.swing.GroupLayout(panelAjout);
         panelAjout.setLayout(panelAjoutLayout);
@@ -337,32 +379,31 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
             panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAjoutLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
+                .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105)
+                .addComponent(takePhoto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(clear)
+                .addGap(88, 88, 88)
+                .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
                 .addGroup(panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAjoutLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(labTitre1)
-                        .addGap(178, 178, 178))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
-                        .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105)
-                        .addComponent(takePhoto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(clear)
-                        .addGap(88, 88, 88)
-                        .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))))
-            .addGroup(panelAjoutLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 94, Short.MAX_VALUE))
+                        .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
+                        .addComponent(labTitre1)
+                        .addGap(251, 251, 251))))
         );
         panelAjoutLayout.setVerticalGroup(
             panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAjoutLayout.createSequentialGroup()
                 .addComponent(labTitre1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAjoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(butValider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(butAnnuler, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -415,19 +456,18 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(butValider2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelModifLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labTitre2)
-                .addGap(179, 179, 179))
             .addGroup(panelModifLayout.createSequentialGroup()
                 .addGroup(panelModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelModifLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(99, 99, 99)
+                        .addComponent(labIma))
+                    .addGroup(panelModifLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
                         .addComponent(fileChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelModifLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(labIma)))
-                .addContainerGap(171, Short.MAX_VALUE))
+                        .addGap(261, 261, 261)
+                        .addComponent(labTitre2)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         panelModifLayout.setVerticalGroup(
             panelModifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,14 +482,16 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
                                 .addGap(67, 67, 67)
                                 .addComponent(labIma))
                             .addComponent(labTitre2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addComponent(fileChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(butAnnuler4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17))
         );
 
         jTabbedPane1.addTab("choisir une photo de profil", panelModif);
+
+        panelParam.setPreferredSize(new java.awt.Dimension(700, 500));
 
         labTitre4.setFont(new java.awt.Font("Chiller", 1, 48)); // NOI18N
         labTitre4.setForeground(new java.awt.Color(62, 96, 111));
@@ -469,28 +511,38 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
             }
         });
 
+        labNom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labNom.setText("Nom :");
 
+        labPrenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labPrenom.setText("Prénom :");
 
+        labMDP1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labMDP1.setText("Ancien mot de passe :");
 
+        labMDP2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labMDP2.setText("Nouveau mot de passe :");
 
+        labMDP3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labMDP3.setText("Nouveau mot de passe :");
 
+        labParamDateNaiss.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labParamDateNaiss.setText("Date de Naissance :");
 
+        labParamVille.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labParamVille.setText("Ville :");
 
+        labParamPays.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labParamPays.setText("Pays :");
 
+        labParamInfo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labParamInfo.setText("Informations :");
 
         textParamInfo.setColumns(20);
         textParamInfo.setRows(5);
         jScrollPane1.setViewportView(textParamInfo);
 
+        butModifMdp.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         butModifMdp.setText("Modifier le mot de passe");
         butModifMdp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,62 +561,73 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
                 .addContainerGap()
                 .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelParamLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(butAnnuler2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(butValider3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(panelParamLayout.createSequentialGroup()
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labTitre4)
                             .addGroup(panelParamLayout.createSequentialGroup()
                                 .addComponent(labParamInfo)
                                 .addGap(38, 38, 38)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParamLayout.createSequentialGroup()
+                                .addGroup(panelParamLayout.createSequentialGroup()
                                     .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(labParamDateNaiss)
                                         .addComponent(labParamVille)
                                         .addComponent(labParamPays)
                                         .addComponent(labNom))
-                                    .addGap(10, 10, 10)
                                     .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(panelParamLayout.createSequentialGroup()
-                                            .addComponent(textParamVille, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(panelParamLayout.createSequentialGroup()
+                                                    .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                                                    .addComponent(butModifMdp))
+                                                .addGroup(panelParamLayout.createSequentialGroup()
+                                                    .addComponent(textParamVille, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(labErreurMdp)
+                                                    .addGap(41, 41, 41))))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelParamLayout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(labErreurMdp))
-                                        .addGroup(panelParamLayout.createSequentialGroup()
-                                            .addComponent(textParamPays, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(butModifMdp))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParamLayout.createSequentialGroup()
+                                            .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(panelParamLayout.createSequentialGroup()
+                                                    .addComponent(labMDP2)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(panelParamLayout.createSequentialGroup()
+                                                    .addComponent(labMDP3)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(panelParamLayout.createSequentialGroup()
+                                                    .addComponent(labMDP1)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(textMDP1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(panelParamLayout.createSequentialGroup()
                                     .addComponent(labPrenom)
                                     .addGap(100, 100, 100)
-                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(panelParamLayout.createSequentialGroup()
-                                            .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(textPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                                .addComponent(textParamDateNaiss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(labMDP2)
-                                                .addComponent(labMDP3)))
-                                        .addGroup(panelParamLayout.createSequentialGroup()
-                                            .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(33, 33, 33)
-                                            .addComponent(labMDP1)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(textMDP1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(textMDP3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(174, Short.MAX_VALUE))))
+                                    .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(textPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                            .addComponent(textParamDateNaiss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(textNom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(panelParamLayout.createSequentialGroup()
+                                .addGap(244, 244, 244)
+                                .addComponent(labTitre4)))
+                        .addContainerGap(82, Short.MAX_VALUE))
+                    .addGroup(panelParamLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(butAnnuler2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(butValider3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))))
         );
         panelParamLayout.setVerticalGroup(
             panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelParamLayout.createSequentialGroup()
                 .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelParamLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(butValider3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelParamLayout.createSequentialGroup()
                         .addComponent(labTitre4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
@@ -578,7 +641,7 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
                             .addComponent(labPrenom)
                             .addComponent(textPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labMDP2)
-                            .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textMDP2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -601,11 +664,8 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
                         .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labParamInfo)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addComponent(butAnnuler2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelParamLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(butValider3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addComponent(butAnnuler2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19))
         );
 
@@ -622,7 +682,9 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         pack();
@@ -635,10 +697,6 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
         //prend une photo
     }//GEN-LAST:event_butValiderActionPerformed
-
-    private void butAnnuler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnuler2ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_butAnnuler2ActionPerformed
 
     private void butAnnuler3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnuler3ActionPerformed
         System.exit(0);
@@ -690,57 +748,6 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         // TODO add your handling code here:
     }//GEN-LAST:event_butValider2ActionPerformed
 
-    private void butValider3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValider3ActionPerformed
-        try {
-            String mdp1 = textMDP1.getText().toString();
-            String mdp2 = textMDP2.getText().toString();
-            String mdp3 = textMDP3.getText().toString();
-            Date datePick = textParamDateNaiss.getDate();
-            String dateNaiss = ParamUserHandler.AjoutDateFRtoUS(datePick);
-            String nom = textNom.getText().toUpperCase().toString();
-            String prenom = textPrenom.getText().toString();
-            String ville = textParamVille.getText().toUpperCase().toString();
-            String pays = textParamPays.getText().toUpperCase().toString();
-            String remarque = textParamInfo.getText().toString();
-            String mail = ParamUserHandler.getLogin().toString();
-
-            if (textMDP1.isVisible()) {
-                if ((mdp1.matches("")) || (mdp2.matches("")) || (mdp3.matches(""))) {
-                    labErreurMdp.setVisible(true);
-                    return;
-                } else {
-
-
-                    try {
-                        if (ParamUserHandler.Valider(mdp1, mdp2, mdp3)) {
-                            System.out.println("Bien pour les mots de passe dans paramètres");
-                        } else {
-                            System.out.println("Pas bien pour les mots de passe dans paramètres");
-                            return;
-                        }
-                        if (InscriHandler.isValid(1, textNom.getText()) == false) {
-                            return;
-                        }
-
-                        if (InscriHandler.isValid(1, textPrenom.getText()) == false) {
-                            return;
-                        }
-
-                    } catch (NoSuchAlgorithmException ex) {
-                        Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    ParamUserHandler.envoiInscription(1, nom, prenom, mail, mdp2, dateNaiss, ville, pays, remarque);
-                }
-            } else {
-                ParamUserHandler.envoiInscription(2, nom, prenom, mail, mdp2, dateNaiss, ville, pays, remarque);
-            }
-
-        } catch (ParseException ex) {
-            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_butValider3ActionPerformed
-
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         ParamUserHandler.RechercheInfoUser();
         textNom.setText(ParamUserHandler.getUserNom().toUpperCase());
@@ -760,33 +767,37 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
         labelPhoto.setIcon(imgProfil);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
+ 
+    
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        ParamUserHandler.RechercheInfoUser();
-        labErreurMdp.setVisible(false);
-        labMDP1.setVisible(false);
-        labMDP2.setVisible(false);
-        labMDP3.setVisible(false);
-        textMDP1.setVisible(false);
-        textMDP2.setVisible(false);
-        textMDP3.setVisible(false);
 
-        labProfilNom.setText("");
-        labProfilNom.setText("Bienvenue " + ParamUserHandler.getUserPrenom().toString() + " " + ParamUserHandler.getUserNom().toString().toUpperCase());
-        labProfilDateNaiss.setText("");
-        try {
-            String s = ParamUserHandler.getUserDateNaiss();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date dateNaissBDD = sdf.parse(s);
-            labProfilDateNaiss.setText("Né(e) le : " + ParamUserHandler.AjoutDateUStoFR(dateNaissBDD));
-        } catch (ParseException ex) {
-            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        labProfilVille.setText("");
-        labProfilVille.setText("Ville : " + ParamUserHandler.getUserVille().toString());
-        labProfilPays.setText("");
-        labProfilPays.setText("Pays : " + ParamUserHandler.getUserPays().toString().toUpperCase());
-        labProfilInfo.setText("");
-        labProfilInfo.setText("Informations : " + ParamUserHandler.getUserInfo().toString());
+            ParamUserHandler.RechercheInfoUser();
+            labErreurMdp.setVisible(false);
+            labMDP1.setVisible(false);
+            labMDP2.setVisible(false);
+            labMDP3.setVisible(false);
+            textMDP1.setVisible(false);
+            textMDP2.setVisible(false);
+            textMDP3.setVisible(false);
+
+            labProfilNom.setText("");
+            labProfilNom.setText("Bienvenue " + ParamUserHandler.getUserPrenom().toString() + " " + ParamUserHandler.getUserNom().toString().toUpperCase());
+            labProfilDateNaiss.setText("");
+            try {
+                String s = ParamUserHandler.getUserDateNaiss();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date dateNaissBDD = sdf.parse(s);
+                labProfilDateNaiss.setText("Né(e) le : " + ParamUserHandler.AjoutDateUStoFR(dateNaissBDD));
+            } catch (ParseException ex) {
+                Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            labProfilVille.setText("");
+            labProfilVille.setText("Ville : " + ParamUserHandler.getUserVille().toString());
+            labProfilPays.setText("");
+            labProfilPays.setText("Pays : " + ParamUserHandler.getUserPays().toString().toUpperCase());
+            labProfilInfo.setText("");
+            labProfilInfo.setText("Informations : " + ParamUserHandler.getUserInfo().toString());
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void butValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValiderMouseClicked
@@ -846,12 +857,16 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
     private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
         int i = OpenCVFaceRecognizer.comparaison("img/temporyFace/test.jpg");
         try {
-            String[] s =ParamUserModel.getUserWithId(i);
+            String[] s = ParamUserModel.getUserWithId(i);
             System.out.println(s[1]);
         } catch (SQLException ex) {
             Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_butValider1MouseClicked
+
+    private void butAnnuler5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnuler5ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_butAnnuler5ActionPerformed
 
     private void butModifMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butModifMdpActionPerformed
         if (labMDP1.isVisible()) {
@@ -871,6 +886,59 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
             textMDP3.setVisible(true);
         }
     }//GEN-LAST:event_butModifMdpActionPerformed
+
+    private void butValider3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValider3ActionPerformed
+        try {
+            String mdp1 = textMDP1.getText().toString();
+            String mdp2 = textMDP2.getText().toString();
+            String mdp3 = textMDP3.getText().toString();
+            Date datePick = textParamDateNaiss.getDate();
+            String dateNaiss = ParamUserHandler.AjoutDateFRtoUS(datePick);
+            String nom = textNom.getText().toUpperCase().toString();
+            String prenom = textPrenom.getText().toString();
+            String ville = textParamVille.getText().toUpperCase().toString();
+            String pays = textParamPays.getText().toUpperCase().toString();
+            String remarque = textParamInfo.getText().toString();
+            String mail = ParamUserHandler.getLogin().toString();
+
+            if (textMDP1.isVisible()) {
+                if ((mdp1.matches("")) || (mdp2.matches("")) || (mdp3.matches(""))) {
+                    labErreurMdp.setVisible(true);
+                    return;
+                } else {
+
+                    try {
+                        if (ParamUserHandler.Valider(mdp1, mdp2, mdp3)) {
+                            System.out.println("Bien pour les mots de passe dans paramètres");
+                        } else {
+                            System.out.println("Pas bien pour les mots de passe dans paramètres");
+                            return;
+                        }
+                        if (InscriHandler.isValid(1, textNom.getText()) == false) {
+                            return;
+                        }
+
+                        if (InscriHandler.isValid(1, textPrenom.getText()) == false) {
+                            return;
+                        }
+
+                    } catch (NoSuchAlgorithmException ex) {
+                        Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    ParamUserHandler.envoiInscription(1, nom, prenom, mail, mdp2, dateNaiss, ville, pays, remarque);
+                }
+            } else {
+                ParamUserHandler.envoiInscription(2, nom, prenom, mail, mdp2, dateNaiss, ville, pays, remarque);
+            }
+
+        } catch (ParseException ex) {
+            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_butValider3ActionPerformed
+
+    private void butAnnuler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnuler2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_butAnnuler2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -906,12 +974,12 @@ ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/us
             }
         });
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAnnuler;
     private javax.swing.JButton butAnnuler2;
     private javax.swing.JButton butAnnuler3;
     private javax.swing.JButton butAnnuler4;
+    private javax.swing.JButton butAnnuler5;
     private javax.swing.JButton butModifMdp;
     private javax.swing.JButton butValider;
     private javax.swing.JButton butValider1;
