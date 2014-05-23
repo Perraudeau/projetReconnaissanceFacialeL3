@@ -40,6 +40,7 @@ public class ApresInscriView extends javax.swing.JFrame {
         labCon.setText("Voulez-vous allez à la page d'accueil ?");
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butValiderActionPerformed(evt);
@@ -47,6 +48,7 @@ public class ApresInscriView extends javax.swing.JFrame {
         });
 
         butAnnuler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
+        butAnnuler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butAnnuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butAnnulerActionPerformed(evt);

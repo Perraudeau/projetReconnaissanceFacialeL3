@@ -170,7 +170,7 @@ public class ParamUserModel {
             //On recuper l'id dans la variable userId
             while(rs.next()){
                 userId = rs.getString(1);
-                System.out.println("variable récupérer userId");
+               
             }
             
             

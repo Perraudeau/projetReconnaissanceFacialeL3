@@ -65,6 +65,8 @@ public class ConnectionView extends javax.swing.JFrame {
         });
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
+        butValider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        butValider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butValiderActionPerformed(evt);
@@ -72,6 +74,8 @@ public class ConnectionView extends javax.swing.JFrame {
         });
 
         butAnnuler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
+        butAnnuler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        butAnnuler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butAnnuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butAnnulerActionPerformed(evt);
@@ -84,8 +88,9 @@ public class ConnectionView extends javax.swing.JFrame {
 
         labInsri.setBackground(new java.awt.Color(51, 204, 255));
         labInsri.setFont(new java.awt.Font("PMingLiU", 1, 14)); // NOI18N
-        labInsri.setForeground(new java.awt.Color(25, 52, 65));
+        labInsri.setForeground(new java.awt.Color(51, 204, 255));
         labInsri.setText("Pas encore inscrit ?");
+        labInsri.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labInsri.setDisplayedMnemonicIndex(0);
         labInsri.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
