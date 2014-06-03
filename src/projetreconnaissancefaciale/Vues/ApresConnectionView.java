@@ -151,7 +151,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labelPhoto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
 
         butAnnuler5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
-        butAnnuler5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         butAnnuler5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butAnnuler5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +220,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labTitre3.setText("RecoFace");
 
         butAnnuler3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
-        butAnnuler3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         butAnnuler3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butAnnuler3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +243,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         });
 
         butValider1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
-        butValider1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         butValider1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butValider1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -324,7 +321,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labTitre1.setText("RecoFace");
 
         butAnnuler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
-        butAnnuler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
         butAnnuler.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butAnnuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,7 +329,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         });
 
         butValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
-        butValider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(153, 153, 153)));
         butValider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butValider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -433,7 +428,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         });
 
         butAnnuler4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
-        butAnnuler4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         butAnnuler4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butAnnuler4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -442,7 +436,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         });
 
         butValider2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
-        butValider2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         butValider2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butValider2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,7 +493,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labTitre4.setText("RecoFace");
 
         butAnnuler2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/gtk-cancel.png"))); // NOI18N
-        butAnnuler2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         butAnnuler2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butAnnuler2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,7 +501,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         });
 
         butValider3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetreconnaissancefaciale/Vues/Images/ip_icon_02_Ok.png"))); // NOI18N
-        butValider3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         butValider3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         butValider3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
