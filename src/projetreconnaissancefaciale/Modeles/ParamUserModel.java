@@ -213,13 +213,23 @@ public class ParamUserModel {
             psRecup.setInt(1, id);
             //On execute la requete
             ResultSet rsRecup = psRecup.executeQuery();
+            boolean empty = true;
             while (rsRecup.next()) {
+                empty = false;
                 userNom = rsRecup.getString(1);
                 userPrenom = rsRecup.getString(2);
                 userVille = rsRecup.getString(3);
                 userPays = rsRecup.getString(4);
                 userDateNaiss = rsRecup.getString(5);
                 userInfo = rsRecup.getString(6);
+            }
+            if( empty ) {
+                userNom = null;
+                userPrenom = null;
+                userVille = null;
+                userPays = null;
+                userDateNaiss = null;
+                userInfo = null;
             }
         } catch (SQLException ex) {
             System.out.println("Erreur dans la requête de recuperation des informations avec l'id");

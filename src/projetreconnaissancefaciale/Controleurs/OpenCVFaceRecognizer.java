@@ -103,7 +103,6 @@ public class OpenCVFaceRecognizer {
             img = cvLoadImage(image.getAbsolutePath());
             String email = image.getName().split("_")[2];
             label = UtilisateurModel.IdGetter(email);
-
             grayImg = IplImage.create(img.width(), img.height(), IPL_DEPTH_8U, 1);
 
             cvCvtColor(img, grayImg, CV_BGR2GRAY);
@@ -125,8 +124,6 @@ public class OpenCVFaceRecognizer {
         cvCvtColor(destination, greyTestImage, CV_BGR2GRAY);
 
         predictedLabel = faceRecognizer.predict(greyTestImage);
-
-        
     } 
     return predictedLabel;
   }

@@ -7,7 +7,9 @@ package projetreconnaissancefaciale.Vues;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -711,7 +715,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         fileChoose.setVisible(false);
         File selection = fileChoose.getSelectedFile();
         fileChoose.setSelectedFile(null);
-        String completeFileName = selection.getAbsolutePath();
+        completeFileName = selection.getAbsolutePath();
 
         ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(completeFileName).getScaledInstance(300, 300, Image.SCALE_DEFAULT));
         labIma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -727,9 +731,9 @@ public class ApresConnectionView extends javax.swing.JFrame {
         fileChooseRecherche.setVisible(false);
         File selection = fileChooseRecherche.getSelectedFile();
         fileChooseRecherche.setSelectedFile(null);
-        String completeFileName = selection.getAbsolutePath();
-
-        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(completeFileName).getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+        completeFileNameRecherche = selection.getAbsolutePath();
+        
+        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(completeFileNameRecherche).getScaledInstance(300, 300, Image.SCALE_DEFAULT));
         labImaRecherche.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labImaRecherche.setVerticalAlignment(javax.swing.SwingConstants.CENTER);
         labImaRecherche.setIcon(icon);
@@ -740,12 +744,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
         fileChooseRecherche.setVisible(true);
     }//GEN-LAST:event_labImaRechercheMouseClicked
 
-    private void butValider1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValider1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butValider1ActionPerformed
-
     private void butValider2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValider2ActionPerformed
-        // TODO add your handling code here:
+        new ApresPhotoValidationFileChooserView().setVisible(true);
     }//GEN-LAST:event_butValider2ActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -870,16 +870,6 @@ public class ApresConnectionView extends javax.swing.JFrame {
         ab.stop();
     }//GEN-LAST:event_panelAjoutComponentHidden
 
-    private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
-        int i = OpenCVFaceRecognizer.comparaison("img/temporyFace/test.jpg");
-        try {
-            String[] s = ParamUserModel.getUserWithId(i);
-            System.out.println(s[1]);
-        } catch (SQLException ex) {
-            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_butValider1MouseClicked
-
     private void butModifMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butModifMdpActionPerformed
         if (labMDP1.isVisible()) {
             labMDP1.setVisible(false);
@@ -956,6 +946,26 @@ public class ApresConnectionView extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_butAnnuler5ActionPerformed
 
+    private void butValider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butValider1MouseClicked
+            
+        int i = OpenCVFaceRecognizer.comparaison(completeFileNameRecherche);
+        try {
+            System.out.println(i);
+            String[] s = ParamUserModel.getUserWithId(i);
+            if(s[1] == null){
+                System.out.println("Il n'y a personne qui ressemble à la photo");
+            }else{
+                System.out.println("La personne sur la photo est elle "+s[1]+"?");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_butValider1MouseClicked
+
+    private void butValider1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValider1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butValider1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -990,6 +1000,8 @@ public class ApresConnectionView extends javax.swing.JFrame {
             }
         });
     }
+    static String completeFileName ="";
+    String completeFileNameRecherche="";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAnnuler;
     private javax.swing.JButton butAnnuler2;
@@ -999,11 +1011,11 @@ public class ApresConnectionView extends javax.swing.JFrame {
     private javax.swing.JButton butModifMdp;
     private javax.swing.JButton butValider;
     private javax.swing.JButton butValider1;
-    private javax.swing.JButton butValider2;
+    protected javax.swing.JButton butValider2;
     private javax.swing.JButton butValider3;
     private javax.swing.JToggleButton clear;
-    private javax.swing.JFileChooser fileChoose;
-    private javax.swing.JFileChooser fileChooseRecherche;
+    protected javax.swing.JFileChooser fileChoose;
+    protected javax.swing.JFileChooser fileChooseRecherche;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToggleButton jToggleButton1;
