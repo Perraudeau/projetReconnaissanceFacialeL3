@@ -1,20 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetreconnaissancefaciale.Modeles;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import projetreconnaissancefaciale.main;
 
 /**
  *
- * @author Alexis
+ * @author Leroux
  */
 public class ParamUserModel {
 

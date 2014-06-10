@@ -10,8 +10,10 @@ import java.security.NoSuchAlgorithmException;
 public class SHA1Handler {
  
     /**
-     * @param args
-     * @throws NoSuchAlgorithmException
+     * Permet de chiffrer les mots de passe en sha1
+     * @param input string
+     * @return string
+     * @throws NoSuchAlgorithmException 
      */
     static String sha1(String input) throws NoSuchAlgorithmException {
         MessageDigest mDigest = MessageDigest.getInstance("SHA1");

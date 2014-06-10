@@ -11,6 +11,12 @@ import projetreconnaissancefaciale.Modeles.InscriptionModel;
  */
 public class InscriHandler {
 
+    /**
+     * Verifie que l'adresse email est valide
+     * @param numero int
+     * @param text string
+     * @return  boolean
+     */
     public static boolean isValid(int numero, String text) {
         String regex;
         if (text != null && text.trim().length() > 0) {
@@ -39,6 +45,12 @@ public class InscriHandler {
         }
     }
 
+    /**
+     * methode qui renvoi vrais si les mots de passe sont identiques
+     * @param mdp1 string
+     * @param mdp2 string
+     * @return boolean
+     */
     public static boolean areSame(String mdp1, String mdp2) {
         if (mdp1.equals(mdp2)) {
             return true;
@@ -47,12 +59,21 @@ public class InscriHandler {
         }
 
     }
-
+    /**
+     * Methode qui envoi l'inscription au modele
+     * @param nom string
+     * @param prenom string
+     * @param mail string
+     * @param pass string
+     * @return boolean
+     */
     public static boolean envoiInscription(String nom, String prenom, String mail, String pass) {
         boolean retour = false;
         try {
+            //On chiffre le mot de passe en sha1
             retour = InscriptionModel.Inscription(nom, prenom, mail, SHA1Handler.sha1(pass));
         } catch (NoSuchAlgorithmException ex) {
+            System.out.println("Erreur au niveau du controleur de l'envoi d'inscription");
             Logger.getLogger(InscriHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retour;

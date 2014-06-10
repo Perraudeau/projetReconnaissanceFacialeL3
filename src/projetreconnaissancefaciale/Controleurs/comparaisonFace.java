@@ -17,10 +17,16 @@ import java.io.File;
 
 /**
  *
- * @author Victor
+ * @author Perraudeau
  */
+
 public class comparaisonFace {
 
+    /**
+     * Fonction pour la comparaison des visages
+     * @param userFace string
+     * @return string
+     */
     public static String matchValue(String userFace) {
         
         File f = new File("img/trainingFace");
@@ -52,6 +58,11 @@ public class comparaisonFace {
         return b;
     }
     
+    /**
+     * Fonction pour la reconnaissance faciale
+     * @param image IplImage
+     * @return CvHistogram
+     */
     private static CvHistogram getHueHistogram(IplImage image) {
         if (image == null || image.nChannels() < 1) {
             new Exception("Erreur!");
@@ -59,11 +70,11 @@ public class comparaisonFace {
         IplImage greyImage = cvCreateImage(image.cvSize(), image.depth(), 1);
         cvCvtColor(image, greyImage, CV_RGB2GRAY);
 
-//bins and value-range
+        //bins and value-range
         int numberOfBins = 256;
         float minRange = 0f;
         float maxRange = 255f;
-// Allocate histogram object
+        // Allocate histogram object
         int dims = 1;
         int[] sizes = new int[]{numberOfBins};
         int histType = CV_HIST_ARRAY;
@@ -71,7 +82,7 @@ public class comparaisonFace {
         float[][] ranges = new float[][]{minMax};
         int uniform = 1;
         CvHistogram hist = cvCreateHist(dims, sizes, histType, ranges, uniform);
-// Compute histogram
+        // Compute histogram
         int accumulate = 0;
         IplImage mask = null;
         IplImage[] aux = new IplImage[]{greyImage};
