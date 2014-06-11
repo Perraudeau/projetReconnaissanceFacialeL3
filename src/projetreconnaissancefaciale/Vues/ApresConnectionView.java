@@ -30,6 +30,7 @@ import projetreconnaissancefaciale.Controleurs.OpenCVFaceRecognizer;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
 import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
 import projetreconnaissancefaciale.Modeles.ParamUserModel;
+import projetreconnaissancefaciale.Modeles.UtilisateurModel;
 
 /**
  *
@@ -71,6 +72,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
         fileChooseRecherche = new javax.swing.JFileChooser();
         labImaRecherche = new javax.swing.JLabel();
         butValider1 = new javax.swing.JButton();
+        labImaRecherche2 = new javax.swing.JLabel();
         panelAjout = new javax.swing.JPanel();
         labTitre1 = new javax.swing.JLabel();
         butAnnuler = new javax.swing.JButton();
@@ -231,6 +233,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
             }
         });
 
+        fileChooseRecherche.setApproveButtonToolTipText("");
         fileChooseRecherche.setFileFilter(new FileNameExtensionFilter(".jpg","jpg"));
         fileChooseRecherche.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         fileChooseRecherche.addActionListener(new java.awt.event.ActionListener() {
@@ -265,26 +268,27 @@ public class ApresConnectionView extends javax.swing.JFrame {
             panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRechercheLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(butValider1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-            .addGroup(panelRechercheLayout.createSequentialGroup()
                 .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRechercheLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76)
+                        .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelRechercheLayout.createSequentialGroup()
+                                .addComponent(labImaRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(137, 137, 137)
+                                .addComponent(labTitre3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labImaRecherche2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(74, Short.MAX_VALUE))
                     .addGroup(panelRechercheLayout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(labImaRecherche))
-                    .addGroup(panelRechercheLayout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(labTitre3)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(butValider1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         panelRechercheLayout.setVerticalGroup(
             panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRechercheLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRechercheLayout.createSequentialGroup()
                 .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelRechercheLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,12 +296,15 @@ public class ApresConnectionView extends javax.swing.JFrame {
                     .addGroup(panelRechercheLayout.createSequentialGroup()
                         .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelRechercheLayout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(labImaRecherche))
-                            .addComponent(labTitre3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(labTitre3)
+                                .addGap(39, 39, 39))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRechercheLayout.createSequentialGroup()
+                                .addGroup(panelRechercheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labImaRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labImaRecherche2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addComponent(fileChooseRecherche, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addComponent(butAnnuler3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -713,6 +720,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
 
     private void fileChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooseActionPerformed
         fileChoose.setVisible(false);
+        if (fileChoose.getSelectedFile()!=null){
         File selection = fileChoose.getSelectedFile();
         fileChoose.setSelectedFile(null);
         completeFileName = selection.getAbsolutePath();
@@ -721,6 +729,13 @@ public class ApresConnectionView extends javax.swing.JFrame {
         labIma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labIma.setVerticalAlignment(javax.swing.SwingConstants.CENTER); 
         labIma.setIcon(icon);
+           }else{
+            fileChoose.setCurrentDirectory(null);
+            fileChoose.setSelectedFile(new File(""));
+            
+            
+            fileChoose.setVisible(true);
+        }
     }//GEN-LAST:event_fileChooseActionPerformed
 
     private void butAnnuler4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAnnuler4ActionPerformed
@@ -729,6 +744,9 @@ public class ApresConnectionView extends javax.swing.JFrame {
 
     private void fileChooseRechercheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooseRechercheActionPerformed
         fileChooseRecherche.setVisible(false);
+        if (fileChooseRecherche.getSelectedFile()!=null){
+            
+        
         File selection = fileChooseRecherche.getSelectedFile();
         fileChooseRecherche.setSelectedFile(null);
         completeFileNameRecherche = selection.getAbsolutePath();
@@ -736,7 +754,13 @@ public class ApresConnectionView extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(completeFileNameRecherche).getScaledInstance(300, 300, Image.SCALE_DEFAULT));
         labImaRecherche.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labImaRecherche.setVerticalAlignment(javax.swing.SwingConstants.CENTER);
+        
         labImaRecherche.setIcon(icon);
+        }else{
+            fileChooseRecherche.setCurrentDirectory(null);
+           fileChooseRecherche.setSelectedFile(new File(""));
+            fileChooseRecherche.setVisible(true);
+        }
     }//GEN-LAST:event_fileChooseRechercheActionPerformed
 
     private void labImaRechercheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labImaRechercheMouseClicked
@@ -952,10 +976,15 @@ public class ApresConnectionView extends javax.swing.JFrame {
         try {
             System.out.println(i);
             String[] s = ParamUserModel.getUserWithId(i);
+            
+            ImageIcon imgRecherche = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/userface/User_" + UtilisateurModel.emailGetter(i) + ".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+            labImaRecherche2.setIcon(imgRecherche);
+            
             if(s[1] == null){
                 System.out.println("Il n'y a personne qui ressemble à la photo");
             }else{
                 System.out.println("La personne sur la photo est elle "+s[1]+"?");
+                System.out.println("img/userface/User_" + UtilisateurModel.emailGetter(i) + ".jpg");
             }
         } catch (SQLException ex) {
             Logger.getLogger(ApresConnectionView.class.getName()).log(Level.SEVERE, null, ex);
@@ -1022,6 +1051,7 @@ public class ApresConnectionView extends javax.swing.JFrame {
     private javax.swing.JLabel labErreurMdp;
     private javax.swing.JLabel labIma;
     private javax.swing.JLabel labImaRecherche;
+    private javax.swing.JLabel labImaRecherche2;
     private javax.swing.JLabel labMDP1;
     private javax.swing.JLabel labMDP2;
     private javax.swing.JLabel labMDP3;
