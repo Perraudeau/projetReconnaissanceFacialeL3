@@ -28,7 +28,7 @@ public class ConnectionHandler {
         try {
             pass = SHA1Handler.sha1(pass);
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(UtilisateurHandler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         /**
          * Appel du modele
