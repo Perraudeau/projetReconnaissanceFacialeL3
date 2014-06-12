@@ -7,7 +7,9 @@ import static com.googlecode.javacv.cpp.opencv_core.cvFlip;
 import static com.googlecode.javacv.cpp.opencv_highgui.cvSaveImage;
 import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -21,10 +23,14 @@ import javax.swing.JLabel;
 public class prendrePhotoHandler implements Runnable {
 
     private final JLabel label;
+    private final JButton butValider;
+    private final JToggleButton butPhoto;
     private static boolean running = false;
 
-    public prendrePhotoHandler(JLabel jl) {
+    public prendrePhotoHandler(JLabel jl,JButton bt,JToggleButton bt2) {
         label = jl;
+        butValider =bt;
+        butPhoto=bt2;
     }
 
     @Override
@@ -45,7 +51,9 @@ public class prendrePhotoHandler implements Runnable {
             grabber.stop();
             grabber.release();
         } catch (Exception ex) {
-            System.out.println("Vous n'avez pas de webcam ! ");
+            label.setText("Vous n'avez pas de webcam ! ");
+            butPhoto.setEnabled(false);
+            butValider.setEnabled(false);
         }
     }
 

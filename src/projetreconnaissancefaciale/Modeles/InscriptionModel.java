@@ -35,8 +35,10 @@ public class InscriptionModel {
             
             //On recuper l'id dans la variable userId
             if(rsMail.next()){
-                System.out.println("Erreur, l'email existe déjà");
-                return retour=false;
+                retour=false;
+                return retour;
+            }else{
+                retour=true;
             }
             /**
              * Requete pour l'insertion d'informations dans la table utilisateur

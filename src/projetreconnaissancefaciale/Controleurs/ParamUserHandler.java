@@ -75,26 +75,30 @@ public class ParamUserHandler {
         }
     }
 
-    public static boolean Valider(String mdp, String mdp1, String mdp2) throws NoSuchAlgorithmException {
+    public static int Valider(String mdp, String mdp1, String mdp2) throws NoSuchAlgorithmException {
         mdp = SHA1Handler.sha1(mdp);
-
+        int i=0;
         if (InscriHandler.areSame(userPass, mdp)) {
         } else {
-            return false;
+            i=1;
+            return i;
         }
-        if (InscriHandler.isValid(3, mdp1)) {
+        if (InscriHandler.isValid(3, mdp1)==false) {
         } else {
-            return false;
+            i=2;
+            return i;
         }
-        if (InscriHandler.isValid(3, mdp2)) {
+        if (InscriHandler.isValid(3, mdp2)==false) {
         } else {
-            return false;
+            i=2;
+            return i;
         }
         if (InscriHandler.areSame(mdp1, mdp2)) {
         } else {
-            return false;
+            i=3;
+            return i;
         }
-        return true;
+        return i;
     }
 
     public static String AjoutDateFRtoUS(Date dateFr) throws ParseException {

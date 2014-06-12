@@ -39,11 +39,8 @@ public class InscriptionView extends javax.swing.JFrame {
         textMdp2 = new javax.swing.JPasswordField();
         textMdp1 = new javax.swing.JPasswordField();
         butValider = new javax.swing.JButton();
-        erreurMail = new javax.swing.JLabel();
+        erreur = new javax.swing.JLabel();
         textNom = new javax.swing.JTextField();
-        erreurNom = new javax.swing.JLabel();
-        erreurPrenom = new javax.swing.JLabel();
-        erreurMdp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -64,15 +61,20 @@ public class InscriptionView extends javax.swing.JFrame {
         labInscri.setFont(new java.awt.Font("Chiller", 0, 24)); // NOI18N
         labInscri.setText("Inscription");
 
+        labNom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labNom.setText("Nom :");
 
+        labPrenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labPrenom.setText("Prénom :");
 
+        labMail.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labMail.setText("Adresse Email :");
 
+        labMDP1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         labMDP1.setText("Mot de passe :");
 
-        labMDP2.setText("Réécrivez votre mot de passe :");
+        labMDP2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        labMDP2.setText("Confirmer votre mot de passe :");
 
         textMdp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,13 +91,7 @@ public class InscriptionView extends javax.swing.JFrame {
             }
         });
 
-        erreurMail.setForeground(new java.awt.Color(255, 0, 0));
-
-        erreurNom.setForeground(new java.awt.Color(255, 0, 0));
-
-        erreurPrenom.setForeground(new java.awt.Color(255, 0, 0));
-
-        erreurMdp.setForeground(new java.awt.Color(255, 0, 0));
+        erreur.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,9 +101,11 @@ public class InscriptionView extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(erreur, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labMail)
@@ -115,24 +113,14 @@ public class InscriptionView extends javax.swing.JFrame {
                     .addComponent(labMDP2)
                     .addComponent(labPrenom)
                     .addComponent(labNom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(textPrenom)
                     .addComponent(textMdp1)
                     .addComponent(textMdp2)
                     .addComponent(textNom)
                     .addComponent(textMail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(erreurMail, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(erreurNom, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(erreurPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(erreurMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,24 +139,24 @@ public class InscriptionView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labInscri, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(erreurNom, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labNom)
-                        .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labNom)
+                    .addComponent(textNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labPrenom)
+                    .addComponent(textPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labMail)
+                    .addComponent(textMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labPrenom)
-                            .addComponent(textPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labMail)
-                            .addComponent(textMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(erreurMail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(erreurPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -178,15 +166,9 @@ public class InscriptionView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textMdp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labMDP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(erreurMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(butAnnuler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butValider, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(erreur, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(59, Short.MAX_VALUE))))
         );
 
         pack();
@@ -198,22 +180,23 @@ public class InscriptionView extends javax.swing.JFrame {
 
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
         //Si le nom n'est pas valide, on arrête
-        if (InscriHandler.isValid(1, textNom.getText()) == false) {
-            erreurNom.setText("Faux");
+        if (InscriHandler.isValid(1, textNom.getText()) ==false) {
+            erreur.setText("Le nom n'est pas valide");
             return;
         } else {
             nom=textNom.getText();
         }
+        
 
-        if (InscriHandler.isValid(1, textPrenom.getText()) == false) {
-            erreurPrenom.setText("Faux");
+        if (InscriHandler.isValid(1, textPrenom.getText()) ==false) {
+            erreur.setText("Le prénom n'est pas valide");
             return;
         } else {
             prenom=textPrenom.getText();
         }
 
-        if (InscriHandler.isValid(2, textMail.getText()) == false) {
-            erreurMail.setText("E-mail faux");
+        if (InscriHandler.isValid(2, textMail.getText()) ==false) {
+            erreur.setText("L'email n'est pas valide");
             return;
         } else {
             email=textMail.getText();
@@ -222,24 +205,26 @@ public class InscriptionView extends javax.swing.JFrame {
         String stringMdp2=Arrays.toString(textMdp2.getPassword());
         
         if (InscriHandler.areSame(stringMdp1, stringMdp2)==false){
-            erreurMdp.setText("Mdp différents");
+            erreur.setText("Les mots de passe sont différents");
             return;
         }else if (InscriHandler.isValid(3, textMdp1.getText()) == false) {
-            erreurMdp.setText("Mdp < 6 caractères");
+            erreur.setText("Le mot de passe est trop court");
             return;   
         }else{
-            erreurMdp.setText("OK");
             pass=textMdp1.getText();
         }
+
         
-        if (InscriHandler.envoiInscription(nom, prenom, email, pass)){
+            if (InscriHandler.envoiInscription(nom, prenom, email, pass)==true){
             ApresInscriView frame = new ApresInscriView(email);
             frame.getContentPane().setBackground(new Color(226, 226, 226));
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         }else{
-            System.out.println("Erreur au niveau de l'ajout");
-        }
+                erreur.setText("l'email existe déjà");
+            }
+            
+        
         this.setVisible(false);
         
         
@@ -292,10 +277,7 @@ public class InscriptionView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAnnuler;
     private javax.swing.JButton butValider;
-    private javax.swing.JLabel erreurMail;
-    private javax.swing.JLabel erreurMdp;
-    private javax.swing.JLabel erreurNom;
-    private javax.swing.JLabel erreurPrenom;
+    private javax.swing.JLabel erreur;
     private javax.swing.JLabel labInscri;
     private javax.swing.JLabel labMDP1;
     private javax.swing.JLabel labMDP2;
