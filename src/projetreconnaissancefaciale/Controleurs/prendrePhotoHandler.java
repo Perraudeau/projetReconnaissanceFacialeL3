@@ -45,6 +45,7 @@ public class prendrePhotoHandler implements Runnable {
             grabber.stop();
             grabber.release();
         } catch (Exception ex) {
+            System.out.println("Vous n'avez pas de webcam ! ");
         }
     }
 
@@ -78,9 +79,11 @@ public class prendrePhotoHandler implements Runnable {
                 grabber.stop();
             } catch (Exception e) {
                 e.printStackTrace();
+
             }
             File fileD = new File(file);
         } catch (Exception e) {
+            System.out.println("Erreur au niveau de la sauvegarde d'image webcam");
         }
     }
 

@@ -1,17 +1,20 @@
 package projetreconnaissancefaciale.Vues;
 
 import java.awt.Color;
+import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
 
 /**
  *
  * @author Leroux
  */
 public class ApresInscriView extends javax.swing.JFrame {
+    private static String emailNewUser;
 
     /**
      * Creates new form ApresInscri
      */
-    public ApresInscriView() {
+    public ApresInscriView(String email) {
+        emailNewUser=email;
         initComponents();
     }
 
@@ -107,6 +110,7 @@ public class ApresInscriView extends javax.swing.JFrame {
 
     private void butValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butValiderActionPerformed
         this.setVisible(false);
+        ParamUserHandler.setLogin(emailNewUser);
         ApresConnectionView frame  = new ApresConnectionView();
         frame.getContentPane().setBackground(new Color(226, 226, 226));
         frame.setLocationRelativeTo(null);
@@ -144,11 +148,10 @@ public class ApresInscriView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ApresInscriView().setVisible(true);
+                new ApresInscriView(emailNewUser).setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAnnuler;
     private javax.swing.JButton butValider;

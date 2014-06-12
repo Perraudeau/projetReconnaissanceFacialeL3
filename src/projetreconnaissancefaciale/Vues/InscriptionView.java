@@ -233,7 +233,7 @@ public class InscriptionView extends javax.swing.JFrame {
         }
         
         if (InscriHandler.envoiInscription(nom, prenom, email, pass)){
-            ApresInscriView frame = new ApresInscriView();
+            ApresInscriView frame = new ApresInscriView(email);
             frame.getContentPane().setBackground(new Color(226, 226, 226));
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
