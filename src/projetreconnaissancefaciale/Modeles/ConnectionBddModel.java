@@ -15,9 +15,9 @@ public class ConnectionBddModel {
     /**
      * Informations de connection a la base de donnee
      */
-    private static final String url = "jdbc:mysql://localhost:3306/reconnaissancefaciale";
+    private static final String url = "jdbc:mysql://192.168.1.100:3306/reconnaissancefaciale";
     private static final String user = "root";
-    private static final String password = "";
+    private static final String password = "root";
     private static Connection connect;
 
     public static Connection getInstance() {

@@ -5,6 +5,7 @@ import com.googlecode.javacv.cpp.opencv_core;
 import com.googlecode.javacv.cpp.opencv_core.IplImage;
 import static com.googlecode.javacv.cpp.opencv_core.cvFlip;
 import static com.googlecode.javacv.cpp.opencv_highgui.cvSaveImage;
+import projetreconnaissancefaciale.Controleurs.Jsch;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -81,6 +82,8 @@ public class prendrePhotoHandler implements Runnable {
                 grabber.start();
                 opencv_core.IplImage img = grabber.grab();
                 cvSaveImage(file, img);
+                Jsch jsch = new Jsch();
+                jsch.send(file);
                 //Detection of the face
                 String s[] = {file, user};
                 FaceDetection.main(s);

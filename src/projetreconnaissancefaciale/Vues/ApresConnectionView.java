@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import projetreconnaissancefaciale.Controleurs.InscriHandler;
+import projetreconnaissancefaciale.Controleurs.Jsch;
 import projetreconnaissancefaciale.Controleurs.OpenCVFaceRecognizer;
 import projetreconnaissancefaciale.Controleurs.ParamUserHandler;
 import projetreconnaissancefaciale.Controleurs.prendrePhotoHandler;
@@ -780,8 +781,10 @@ public class ApresConnectionView extends javax.swing.JFrame {
         try {
             ParamUserHandler.RechercheInfoUser();
             //Mis à jour de l'image de profil
-            
-            ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage("img/userface/User_" + ParamUserHandler.getLogin() + ".jpg").getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+            String photo = "img/userface/User_" + ParamUserHandler.getLogin() + ".jpg";
+            Jsch jsch = new Jsch();
+            jsch.download(photo);
+            ImageIcon imgProfil = new ImageIcon(Toolkit.getDefaultToolkit().getImage(photo).getScaledInstance(300, 300, Image.SCALE_DEFAULT));
             labelPhoto.setIcon(imgProfil);
             
             

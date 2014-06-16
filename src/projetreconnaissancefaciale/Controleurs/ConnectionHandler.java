@@ -21,6 +21,7 @@ public class ConnectionHandler {
      * et son niveau d'utilisateur en case 1 : 
      * 0: pas autorisé 1: utilisateur 2: administrateur
      */
+
     public static String[] sha1ToVerificationUtilisateur(String email, String pass) {
         String[] retour = new String[2];
         retour[0] = "0";
