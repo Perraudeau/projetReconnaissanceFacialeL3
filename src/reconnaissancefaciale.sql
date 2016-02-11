@@ -82,9 +82,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `password`, `email`, `niveauUtilisateur`, `dateInscription`) VALUES
-(1, '88fa846e5f8aa198848be76e1abdcb7d7a42d292', 'perraudeau.victor@gmail.com', 1, '0000-00-00 00:00:00'),
-(2, '37ac5e111a9b2f779e373f78efa4f7678b93feb1', 'leroux.alexis@gmail.com', 2, '0000-00-00 00:00:00'),
-(21, 'e9efe2aea5ad46614d39e809e89207fa6f915ffe', 'Paul-Henry@Chevillard.com', 1, '2014-03-23 23:07:13');
+(1, '88fa846e5f8aa198848be76e1abdcb7d7a42d292', 'alice@example.com', 1, '0000-00-00 00:00:00'),
+(2, '37ac5e111a9b2f779e373f78efa4f7678b93feb1', 'bob@example.com', 2, '0000-00-00 00:00:00'),
+(21, 'e9efe2aea5ad46614d39e809e89207fa6f915ffe', 'carl@example.com', 1, '2014-03-23 23:07:13');
 
 --
 -- Contraintes pour les tables exportées
